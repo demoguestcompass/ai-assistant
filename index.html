@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GuestCompass AI | Slimme AI-oplossingen voor de hospitality</title>
+<meta name="description" content="Ontdek de AI-mogelijkheden van GuestCompass. Van intelligente chatbots tot geautomatiseerde gastcommunicatie â verhoog de gastbeleving en bespaar tijd.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#002B4C;
+  --navy-dark:#001a2e;
+  --navy-light:#0a3d66;
+  --blue:#1a6fb5;
+  --blue-light:#e8f2fa;
+  --gold:#c9a84c;
+  --gold-light:#f5eedc;
+  --white:#ffffff;
+  --off-white:#f8f9fb;
+  --gray-50:#f9fafb;
+  --gray-100:#f3f4f6;
+  --gray-200:#e5e7eb;
+  --gray-300:#d1d5db;
+  --gray-500:#6b7280;
+  --gray-600:#4b5563;
+  --gray-700:#374151;
+  --gray-800:#1f2937;
+  --gray-900:#111827;
+  --font-heading:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --shadow-sm:0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-lg:0 10px 15px -3px rgba(0,0,0,0.1),0 4px 6px -4px rgba(0,0,0,0.1);
+  --shadow-xl:0 20px 25px -5px rgba(0,0,0,0.1),0 8px 10px -6px rgba(0,0,0,0.1);
+  --radius:12px;
+  --radius-lg:16px;
+  --radius-xl:24px;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-body);color:var(--gray-800);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ===== NAVBAR ===== */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,43,76,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);transition:all .3s ease}
+.navbar.scrolled{background:rgba(0,43,76,0.98);box-shadow:0 4px 20px rgba(0,0,0,0.15)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo{display:flex;align-items:center;gap:12px;font-family:var(--font-heading);font-size:22px;font-weight:700;color:var(--white);letter-spacing:-0.3px}
+.nav-logo svg{flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:14px;font-weight:500;transition:color .2s;letter-spacing:0.2px}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:10px 24px;border-radius:8px;font-weight:600;font-size:14px;transition:all .2s;border:none;cursor:pointer}
+.nav-cta:hover{background:#d4b35a;transform:translateY(-1px);box-shadow:0 4px 12px rgba(201,168,76,0.3)}
+.nav-mobile-toggle{display:none;background:none;border:none;color:var(--white);cursor:pointer;padding:8px}
+.nav-mobile-menu{display:none}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 50%,var(--navy) 100%);overflow:hidden;padding-top:72px}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");z-index:1}
+.hero-glow{position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.12) 0%,transparent 70%);z-index:1}
+.hero-glow-2{position:absolute;bottom:-30%;left:-10%;width:800px;height:800px;background:radial-gradient(circle,rgba(26,111,181,0.1) 0%,transparent 70%);z-index:1}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:24px}
+.hero-badge svg{width:16px;height:16px}
+.hero h1{font-family:var(--font-heading);font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:24px;letter-spacing:-0.5px}
+.hero h1 span{color:var(--gold);display:inline}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:40px;max-width:520px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:10px;font-weight:600;font-size:15px;transition:all .25s;border:none;cursor:pointer;letter-spacing:0.2px}
+.btn-primary:hover{background:#d4b35a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,0.35)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);padding:14px 32px;border-radius:10px;font-weight:500;font-size:15px;transition:all .25s;border:1px solid rgba(255,255,255,0.25);cursor:pointer}
+.btn-secondary:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.4);transform:translateY(-2px)}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-mockup{position:relative;width:100%;max-width:480px}
+.hero-card{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-xl);padding:32px;box-shadow:0 32px 64px rgba(0,0,0,0.3)}
+.hero-chat{display:flex;flex-direction:column;gap:16px}
+.chat-msg{max-width:85%;padding:14px 18px;border-radius:16px;font-size:14px;line-height:1.5;animation:fadeInUp .6s ease both}
+.chat-msg.guest{align-self:flex-end;background:var(--blue);color:var(--white);border-bottom-right-radius:4px}
+.chat-msg.ai{align-self:flex-start;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.9);border-bottom-left-radius:4px;position:relative}
+.chat-msg.ai::before{content:'AI';position:absolute;top:-8px;left:12px;background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;letter-spacing:0.5px}
+.chat-typing{align-self:flex-start;display:flex;gap:4px;padding:14px 18px;background:rgba(255,255,255,0.08);border-radius:16px;border-bottom-left-radius:4px}
+.chat-typing span{width:8px;height:8px;background:rgba(255,255,255,0.4);border-radius:50%;animation:typing 1.4s infinite}
+.chat-typing span:nth-child(2){animation-delay:0.2s}
+.chat-typing span:nth-child(3){animation-delay:0.4s}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-6px);opacity:1}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-stats{display:flex;gap:32px;margin-top:48px}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:var(--font-heading);font-size:28px;font-weight:700;color:var(--gold)}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+
+/* ===== SECTION STYLES ===== */
+.section{padding:100px 24px}
+.section-dark{background:var(--navy);color:var(--white)}
+.section-alt{background:var(--off-white)}
+.container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;max-width:700px;margin:0 auto 64px}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.section-label-light{color:var(--gold)}
+.section-title{font-family:var(--font-heading);font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.25;margin-bottom:20px;letter-spacing:-0.3px}
+.section-subtitle{font-size:17px;color:var(--gray-500);line-height:1.7}
+.section-dark .section-subtitle{color:rgba(255,255,255,0.6)}
+
+/* ===== FEATURES GRID ===== */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.feature-card{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:36px 32px;transition:all .3s ease;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--blue));transform:scaleX(0);transition:transform .3s ease;transform-origin:left}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-xl);border-color:transparent}
+.feature-card:hover::before{transform:scaleX(1)}
+.feature-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--navy),var(--navy-light));border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--white)}
+.feature-card h3{font-family:var(--font-heading);font-size:20px;font-weight:600;margin-bottom:12px;color:var(--gray-900)}
+.feature-card p{font-size:14px;color:var(--gray-600);line-height:1.7}
+.feature-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--blue);background:var(--blue-light);padding:4px 10px;border-radius:100px;margin-top:16px;text-transform:uppercase;letter-spacing:0.5px}
+.feature-tag.beta{color:#b45309;background:#fef3c7}
+
+/* ===== HOW IT WORKS ===== */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;counter-reset:step}
+.how-step{text-align:center;position:relative;counter-increment:step}
+.how-step::before{content:counter(step);display:flex;align-items:center;justify-content:center;width:56px;height:56px;background:var(--navy);color:var(--gold);font-family:var(--font-heading);font-size:24px;font-weight:700;border-radius:50%;margin:0 auto 24px;border:3px solid rgba(201,168,76,0.3)}
+.how-step h3{font-family:var(--font-heading);font-size:20px;font-weight:600;margin-bottom:12px;color:var(--gray-900)}
+.how-step p{font-size:14px;color:var(--gray-600);line-height:1.7;max-width:320px;margin:0 auto}
+
+/* ===== DEMO BANNER ===== */
+.demo-section{position:relative;padding:100px 24px;overflow:hidden}
+.demo-bg{position:absolute;inset:0;background:linear-gradient(135deg,var(--navy) 0%,#0d3a5c 100%)}
+.demo-bg::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='m0 40 40-40h-10l-40 40zm40 0v-10l-40 40z'/%3E%3C/g%3E%3C/svg%3E")}
+.demo-content{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center}
+.demo-content h2{font-family:var(--font-heading);font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--white);margin-bottom:20px}
+.demo-content p{font-size:17px;color:rgba(255,255,255,0.7);margin-bottom:40px;line-height:1.7;max-width:600px;margin-left:auto;margin-right:auto}
+.demo-buttons{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.demo-frame{margin-top:56px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 32px 64px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.1)}
+.demo-frame img{width:100%;display:block}
+
+/* ===== PRICING ===== */
+.pricing-card{max-width:560px;margin:0 auto;background:var(--white);border:2px solid var(--gray-200);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg)}
+.pricing-header{background:linear-gradient(135deg,var(--navy),var(--navy-light));padding:40px 40px 32px;text-align:center;color:var(--white)}
+.pricing-badge{display:inline-block;background:rgba(201,168,76,0.2);border:1px solid rgba(201,168,76,0.4);color:var(--gold);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:20px;letter-spacing:0.5px}
+.pricing-header h3{font-family:var(--font-heading);font-size:28px;font-weight:700;margin-bottom:8px}
+.pricing-header p{font-size:14px;color:rgba(255,255,255,0.6)}
+.pricing-amount{display:flex;align-items:baseline;justify-content:center;gap:4px;margin-top:24px}
+.pricing-currency{font-size:24px;font-weight:600;color:var(--gold)}
+.pricing-num{font-family:var(--font-heading);font-size:64px;font-weight:700;color:var(--white);line-height:1}
+.pricing-per{font-size:16px;color:rgba(255,255,255,0.6)}
+.pricing-body{padding:40px}
+.pricing-features{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:32px}
+.pricing-features li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--gray-700)}
+.pricing-features li svg{flex-shrink:0;margin-top:2px;color:var(--blue)}
+.pricing-note{font-size:13px;color:var(--gray-500);text-align:center;margin-top:16px;line-height:1.6}
+.pricing-cta{display:block;width:100%;text-align:center;background:var(--navy);color:var(--white);padding:16px;border-radius:10px;font-weight:600;font-size:15px;transition:all .25s;border:none;cursor:pointer}
+.pricing-cta:hover{background:var(--navy-light);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact-info h3{font-family:var(--font-heading);font-size:24px;font-weight:600;margin-bottom:16px;color:var(--gray-900)}
+.contact-info p{font-size:15px;color:var(--gray-600);line-height:1.7;margin-bottom:32px}
+.contact-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--gray-100)}
+.contact-item:last-child{border-bottom:none}
+.contact-item-icon{width:44px;height:44px;background:var(--blue-light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--navy);flex-shrink:0}
+.contact-item-text{font-size:14px}
+.contact-item-label{font-size:12px;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
+.contact-form-wrap{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--navy-dark);color:rgba(255,255,255,0.5);padding:48px 24px;text-align:center}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px}
+.footer-logo{font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--white)}
+.footer-links{display:flex;gap:32px;flex-wrap:wrap;justify-content:center}
+.footer-links a{font-size:14px;transition:color .2s}
+.footer-links a:hover{color:var(--white)}
+.footer-copy{font-size:13px}
+
+/* ===== ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+.reveal-delay-5{transition-delay:.5s}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-inner{grid-template-columns:1fr;text-align:center;gap:40px}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-buttons{justify-content:center}
+  .hero-stats{justify-content:center}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .section{padding:64px 16px}
+  .nav-links{display:none}
+  .nav-mobile-toggle{display:block}
+  .nav-mobile-menu.active{display:flex;position:fixed;top:72px;left:0;right:0;background:var(--navy);flex-direction:column;padding:24px;gap:16px;border-top:1px solid rgba(255,255,255,0.1)}
+  .nav-mobile-menu.active a{color:rgba(255,255,255,0.8);font-size:16px;padding:8px 0}
+  .features-grid{grid-template-columns:1fr}
+  .how-grid{grid-template-columns:1fr;gap:32px}
+  .hero-stats{flex-direction:row;gap:24px}
+  .hero-mockup{max-width:340px;margin:0 auto}
+  .demo-section{padding:64px 16px}
+  .pricing-body{padding:24px}
+  .pricing-header{padding:32px 24px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" stroke="#c9a84c" stroke-width="2"/><path d="M10 16.5c0-3.6 2.7-6.5 6-6.5s6 2.9 6 6.5c0 2.4-1.2 4.5-3 5.6v2.4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-2.4c-1.8-1.1-3-3.2-3-5.6z" fill="#c9a84c"/><rect x="13" y="12" width="6" height="1" rx=".5" fill="#002B4C"/><rect x="13" y="14.5" width="6" height="1" rx=".5" fill="#002B4C"/><rect x="13" y="17" width="4" height="1" rx=".5" fill="#002B4C"/></svg>
+      GuestCompass
+    </a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#hoe-het-werkt">Hoe het werkt</a>
+      <a href="#demo">Demo</a>
+      <a href="#prijzen">Prijzen</a>
+      <a href="#contact" class="nav-cta">Contact opnemen</a>
+    </div>
+    <button class="nav-mobile-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('active')" aria-label="Menu">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="#features" onclick="this.parentElement.classList.remove('active')">Features</a>
+    <a href="#hoe-het-werkt" onclick="this.parentElement.classList.remove('active')">Hoe het werkt</a>
+    <a href="#demo" onclick="this.parentElement.classList.remove('active')">Demo</a>
+    <a href="#prijzen" onclick="this.parentElement.classList.remove('active')">Prijzen</a>
+    <a href="#contact" onclick="this.parentElement.classList.remove('active')">Contact opnemen</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l2 5h5l-4 3.5 1.5 5L8 10.5 3.5 13.5 5 8.5 1 5h5z"/></svg>
+        AI-Powered Hospitality
+      </div>
+      <h1>Jouw digitale conciÃ«rge.<br><span>Altijd beschikbaar.</span></h1>
+      <p class="hero-sub">GuestCompass AI beantwoordt gastvragen 24/7, automatiseert communicatie via WhatsApp, e-mail en SMS, en verhoogt de gastbeleving â terwijl jouw team zich richt op wat echt telt.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">
+          Start gratis proefperiode
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10m-4-4l4 4-4 4"/></svg>
+        </a>
+        <a href="#demo" class="btn-secondary">
+          Bekijk live demo
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">24/7</div>
+          <div class="hero-stat-label">Beschikbaar</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">&lt;3s</div>
+          <div class="hero-stat-label">Reactietijd</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">30+</div>
+          <div class="hero-stat-label">Talen</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-mockup">
+        <div class="hero-card">
+          <div class="hero-chat">
+            <div class="chat-msg guest" style="animation-delay:.3s">Hoi! Is er parkeergelegenheid bij het hotel?</div>
+            <div class="chat-msg ai" style="animation-delay:.9s">Jazeker! Wij hebben gratis privÃ©parking direct bij het hotel. U kunt bij aankomst uw auto parkeren op ons terrein. Wilt u dat ik een parkeerplaats voor u reserveer?</div>
+            <div class="chat-msg guest" style="animation-delay:1.5s">Ja graag! En hoe laat is het ontbijt?</div>
+            <div class="chat-typing" style="animation-delay:2.1s"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="section section-alt" id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Features</div>
+      <h2 class="section-title">Alles wat je nodig hebt voor slimme gastcommunicatie</h2>
+      <p class="section-subtitle">Van een intelligente AI-assistent tot geautomatiseerde berichtenflows â GuestCompass biedt een compleet platform voor moderne hospitality.</p>
+    </div>
+    <div class="features-grid">
+
+      <!-- Feature 1: AI Assistant -->
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3>AI-Assistent &amp; Chatbot</h3>
+        <p>Een slimme chatbot die vragen van gasten direct beantwoordt â van parkeergelegenheid tot restauranttijden. GeÃ¯ntegreerd in jouw website, webapp en WhatsApp.</p>
+        <span class="feature-tag">24/7 beschikbaar</span>
+      </div>
+
+      <!-- Feature 2: Backend Chatbot -->
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Backend Chatbot voor Receptie</h3>
+        <p>Jouw receptieteam krijgt AI-ondersteuning: de backend chatbot beantwoordt interne vragen, genereert antwoorden en helpt bij complexe gastvragen.</p>
+        <span class="feature-tag">Team productiviteit</span>
+      </div>
+
+      <!-- Feature 3: Receptie Notificaties -->
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+        </div>
+        <h3>Receptie-Notificaties</h3>
+        <p>Wanneer de AI een vraag niet kan beantwoorden, ontvangt de receptie direct een notificatie. Zo glipt er nooit een gastvraag tussendoor.</p>
+        <span class="feature-tag">Escalatie-systeem</span>
+      </div>
+
+      <!-- Feature 4: Messaging Flow -->
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        </div>
+        <h3>Messaging Flow</h3>
+        <p>Automatische berichten via WhatsApp, e-mail en SMS op precies het juiste moment: vÃ³Ã³r aankomst, tijdens het verblijf en na vertrek.</p>
+        <span class="feature-tag">WhatsApp â¢ Email â¢ SMS</span>
+      </div>
+
+      <!-- Feature 5: Website Widget -->
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Website Widget</h3>
+        <p>Een elegante chat-widget op jouw hotelwebsite. Beantwoordt pre-booking vragen, vangt leads en logt marketinginteracties automatisch.</p>
+        <span class="feature-tag">Lead generatie</span>
+      </div>
+
+      <!-- Feature 6: Auto FAQ -->
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+        </div>
+        <h3>Auto FAQ-Suggesties</h3>
+        <p>De AI analyseert veelgestelde vragen en stelt automatisch nieuwe FAQ-items voor. Jouw kennisbank wordt steeds slimmer en completer.</p>
+        <span class="feature-tag">Zelflerend</span>
+      </div>
+
+      <!-- Feature 7: Mews Integratie -->
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Mews Integratie</h3>
+        <p>Directe koppeling met Mews PMS: gasten kunnen online inchecken via de API. Realtime synchronisatie van reserveringen en gastgegevens.</p>
+        <span class="feature-tag beta">Beta</span>
+      </div>
+
+      <!-- Feature 8: Meta/WhatsApp Tracking -->
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Meta/WhatsApp Kostentracking</h3>
+        <p>Volledig inzicht in je berichtenkosten. Track WhatsApp- en Meta-kosten per bericht, per gast en per campagne in een overzichtelijk dashboard.</p>
+        <span class="feature-tag">Transparant</span>
+      </div>
+
+      <!-- Feature 9: Multi-language -->
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>30+ Talen</h3>
+        <p>De AI-assistent communiceert vloeiend in meer dan 30 talen. Internationale gasten voelen zich direct welkom â in hun eigen taal.</p>
+        <span class="feature-tag">Meertalig</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section" id="hoe-het-werkt">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Hoe het werkt</div>
+      <h2 class="section-title">In drie stappen live</h2>
+      <p class="section-subtitle">Van aanmelding tot live AI-assistent in minder dan een week. Wij doen het zware werk.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-step reveal reveal-delay-1">
+        <h3>Content aanleveren</h3>
+        <p>Deel je hotelinfo, huisregels, faciliteiten en veelgestelde vragen. Wij vullen je GuestCompass-omgeving.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-2">
+        <h3>AI trainen &amp; testen</h3>
+        <p>Onze AI leert jouw accommodatie kennen. Je test de chatbot en messaging flows voordat je live gaat.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-3">
+        <h3>Live &amp; optimaliseren</h3>
+        <p>Jouw AI-assistent gaat live. De auto FAQ-suggesties zorgen dat je kennisbank steeds beter wordt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMO SECTION ===== -->
+<section class="demo-section" id="demo">
+  <div class="demo-bg"></div>
+  <div class="demo-content reveal">
+    <h2>Ervaar het zelf</h2>
+    <p>Bekijk onze live demo van Horizon Hotel en ontdek hoe GuestCompass AI werkt in de praktijk. Chat met de AI-assistent, bekijk de gastervaring en ontdek de mogelijkheden.</p>
+    <div class="demo-buttons">
+      <a href="https://demoguestcompass.github.io/horizon-hotel/" target="_blank" class="btn-primary">
+        Bekijk Horizon Hotel Demo
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17V7m0 0L17 7M7 7l10 10" transform="translate(-3,-3)"/></svg>
+      </a>
+      <a href="https://horizonhotel.guestinfo.com/NL?_ca=1" target="_blank" class="btn-secondary">
+        Chat met de AI-Assistent
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" transform="scale(0.65) translate(1,1)"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="section section-alt" id="prijzen">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Prijzen</div>
+      <h2 class="section-title">Transparant &amp; eerlijk</h2>
+      <p class="section-subtitle">Geen verborgen kosten. Start met 2 maanden gratis proefperiode en betaal daarna per kamer.</p>
+    </div>
+    <div class="pricing-card reveal">
+      <div class="pricing-header">
+        <div class="pricing-badge">â¨ 2 maanden gratis</div>
+        <h3>GuestCompass AI</h3>
+        <p>Alles wat je nodig hebt voor slimme gastcommunicatie</p>
+        <div class="pricing-amount">
+          <span class="pricing-currency">â¬</span>
+          <span class="pricing-num">1</span>
+          <span class="pricing-per">/kamer/maand</span>
+        </div>
+      </div>
+      <div class="pricing-body">
+        <ul class="pricing-features">
+          <li>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <span><strong>2 maanden gratis</strong> proefperiode â vrijblijvend testen</span>
+          </li>
+          <li>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <span>AI-assistent, chatbot &amp; messaging flows inbegrepen</span>
+          </li>
+          <li>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <span>Website widget &amp; webapp voor gasten</span>
+          </li>
+          <li>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <span>WhatsApp, e-mail &amp; SMS integratie</span>
+          </li>
+          <li>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <span>Backend chatbot &amp; receptie-notificaties</span>
+          </li>
+          <li>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <span>Auto FAQ-suggesties &amp; zelflerend systeem</span>
+          </li>
+          <li>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <span>30+ talen ondersteund</span>
+          </li>
+          <li>
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <span>Mews PMS integratie <em>(beta)</em></span>
+          </li>
+        </ul>
+        <a href="#contact" class="pricing-cta">Start gratis proefperiode</a>
+        <p class="pricing-note">Minimum â¬50/maand â¢ Exclusief Meta/WhatsApp berichtenkosten<br>Geen opzegkosten â¢ Maandelijks opzegbaar na proefperiode</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Klaar om te starten?</h2>
+      <p class="section-subtitle">Neem contact op en ontdek wat GuestCompass AI voor jouw accommodatie kan betekenen. We reageren binnen 24 uur.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <h3>Laten we kennismaken</h3>
+        <p>Plan een vrijblijvend gesprek of stuur een bericht. We denken graag mee over hoe AI jouw gastbeleving kan verbeteren.</p>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">E-mail</div>
+            <a href="mailto:thomas@guestcompass.nl" style="color:var(--blue);font-weight:500">thomas@guestcompass.nl</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" transform="scale(0.85) translate(1.5,1.5)"/><path d="M2 12h20" transform="scale(0.85) translate(1.5,1.5)"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" transform="scale(0.85) translate(1.5,1.5)"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Website</div>
+            <a href="https://www.guestcompass.nl" target="_blank" style="color:var(--blue);font-weight:500">www.guestcompass.nl</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" transform="scale(0.85) translate(1.5,1.5)"/><circle cx="12" cy="10" r="3" transform="scale(0.85) translate(1.5,1.5)"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Locatie</div>
+            <span>Nederland</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <iframe
+          id="JotFormIFrame-260533074814050"
+          title="Contact Formulier"
+          src="https://eu.jotform.com/260533074814050"
+          style="width:100%;min-height:540px;border:none"
+          scrolling="no"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">GuestCompass</div>
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#hoe-het-werkt">Hoe het werkt</a>
+      <a href="#demo">Demo</a>
+      <a href="#prijzen">Prijzen</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.guestcompass.nl" target="_blank">guestcompass.nl</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 GuestCompass. Alle rechten voorbehouden.</div>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Reveal on scroll
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// JotForm iframe resize
+window.addEventListener('message', function(e) {
+  if (typeof e.data === 'object') return;
+  var args = e.data.split(':');
+  if (args.length > 2) {
+    var iframe = document.getElementById('JotFormIFrame-' + args[args.length-1]);
+    if (!iframe) return;
+    switch (args[0]) {
+      case 'scrollIntoView': iframe.scrollIntoView(); break;
+      case 'setHeight': iframe.style.height = args[1] + 'px'; break;
+      case 'reloadPage': window.location.reload(); break;
+    }
+  }
+});
+</script>
+</body>
+</html>
