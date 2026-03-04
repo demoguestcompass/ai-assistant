@@ -205,6 +205,17 @@ a{text-decoration:none;color:inherit}
   .pricing-body{padding:24px}
   .pricing-header{padding:32px 24px 24px}
 }
+
+/* ===== CAROUSEL ===== */
+.carousel-wrapper{position:relative;min-height:220px}
+.carousel-slide{display:none;opacity:0;transition:opacity .6s ease}
+.carousel-slide.active{display:block;opacity:1}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);cursor:pointer;transition:background .3s}
+.carousel-dot.active{background:var(--gold)}
+.chat-link{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border-radius:8px;padding:8px 12px;margin-top:4px}
+.chat-link-icon{font-size:16px}
+.chat-link-text{font-size:13px;color:rgba(255,255,255,0.9);font-style:italic;text-decoration:underline;text-underline-offset:2px}
 </style>
 </head>
 <body>
@@ -272,11 +283,55 @@ a{text-decoration:none;color:inherit}
     <div class="hero-visual">
       <div class="hero-mockup">
         <div class="hero-card">
-          <div class="hero-chat">
-            <div class="chat-msg guest" style="animation-delay:.3s">Hoi! Is er parkeergelegenheid bij het hotel?</div>
-            <div class="chat-msg ai" style="animation-delay:.9s">Jazeker! Wij hebben gratis priv&eacute;parking direct bij het hotel. U kunt bij aankomst uw auto parkeren op ons terrein. Wilt u dat ik een parkeerplaats voor u reserveer?</div>
-            <div class="chat-msg guest" style="animation-delay:1.5s">Ja graag! En hoe laat is het ontbijt?</div>
-            <div class="chat-typing" style="animation-delay:2.1s"><span></span><span></span><span></span></div>
+          <div class="carousel-wrapper">
+
+            <!-- Slide 1: Parkeren -->
+            <div class="carousel-slide active">
+              <div class="hero-chat">
+                <div class="chat-msg guest">Hoi! Is er parkeergelegenheid bij het hotel?</div>
+                <div class="chat-msg ai">Jazeker! Wij hebben gratis priv&eacute;parking direct bij het hotel. U kunt bij aankomst uw auto parkeren op ons terrein. Wilt u dat ik een parkeerplaats voor u reserveer?</div>
+                <div class="chat-msg guest">Ja graag! En hoe laat is het ontbijt?</div>
+                <div class="chat-typing"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Boeken -->
+            <div class="carousel-slide">
+              <div class="hero-chat">
+                <div class="chat-msg guest">Hebben jullie nog kamers beschikbaar volgende week?</div>
+                <div class="chat-msg ai">Ja, we hebben nog mooie kamers beschikbaar! U kunt direct online boeken via onze boekingspagina:</div>
+                <div class="chat-msg ai">
+                  <div class="chat-link">
+                    <span class="chat-link-icon">ð</span>
+                    <span class="chat-link-text">horizonhotel.com/boeken</span>
+                  </div>
+                </div>
+                <div class="chat-msg guest">Top, ik ga even kijken!</div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Inchecken -->
+            <div class="carousel-slide">
+              <div class="hero-chat">
+                <div class="chat-msg ai">Goedemiddag! Uw verblijf begint morgen. U kunt alvast online inchecken en uw sleutel klaarzetten:</div>
+                <div class="chat-msg ai">
+                  <div class="chat-link">
+                    <span class="chat-link-icon">â</span>
+                    <span class="chat-link-text">horizonhotel.guestinfo.com/inchecken</span>
+                  </div>
+                </div>
+                <div class="chat-msg guest">Super handig, bedankt!</div>
+                <div class="chat-msg ai">Graag gedaan! Tot morgen. ð</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dots -->
+          <div class="carousel-dots">
+            <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+            <span class="carousel-dot" onclick="goToSlide(1)"></span>
+            <span class="carousel-dot" onclick="goToSlide(2)"></span>
           </div>
         </div>
       </div>
@@ -614,6 +669,23 @@ window.addEventListener('message', function(e) {
     }
   }
 });
+
+// Hero carousel
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = n;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+
+setInterval(() => {
+  goToSlide((currentSlide + 1) % slides.length);
+}, 4000);
 </script>
 </body>
 </html>
