@@ -22,6 +22,25 @@
       z-index: 99999;
       transition: transform 0.2s, box-shadow 0.2s;
     }
+    #gc-widget-label {
+      position: fixed;
+      bottom: 32px;
+      right: 92px;
+      background: white;
+      color: #333;
+      font-family: sans-serif;
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 99999;
+      transition: opacity 0.2s;
+    }
+    #gc-widget-label.gc-hidden {
+      opacity: 0;
+    }
     #gc-widget-btn:hover {
       transform: scale(1.08);
       box-shadow: 0 6px 20px rgba(0,0,0,0.25);
@@ -125,6 +144,10 @@
     <iframe id="gc-iframe" src="` + assistantUrl + `" title="GuestCompass AI Assistent"></iframe>
   `;
 
+  var label = document.createElement('div');
+  label.id = 'gc-widget-label';
+  label.textContent = 'Chat met onze assistent';
+  document.body.appendChild(label);
   document.body.appendChild(btn);
   document.body.appendChild(chatWindow);
 
@@ -132,6 +155,7 @@
   btn.addEventListener('click', function () {
     isOpen = !isOpen;
     btn.classList.toggle('gc-open', isOpen);
+    label.classList.toggle('gc-hidden', isOpen);
     if (isOpen) {
       chatWindow.style.display = 'flex';
       setTimeout(function () { chatWindow.classList.add('gc-visible'); }, 10);
