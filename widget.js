@@ -3,6 +3,7 @@
   var hotelName = config.hotelName || 'GuestCompass AI';
   var color = config.color || '#F97316';
   var assistantUrl = config.assistantUrl || 'https://hospitality-ai.guestcompass.nl/';
+  var headerColor = config.headerColor || color;
 
   var styles = `
     #gc-widget-btn {
@@ -81,7 +82,7 @@
       opacity: 1;
     }
     #gc-chat-header {
-      background: ` + color + `;
+      background: ` + headerColor + `;
       padding: 14px 16px;
       display: flex;
       align-items: center;
