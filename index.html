@@ -723,6 +723,26 @@ setInterval(() => {
 }, 7000);
 </script>
 <!-- Horizon Hotel AI Widget -->
+<script>
+  window.GuestCompassConfig = {
+    color: 'rgb(51,51,51)',
+    headerColor: 'rgb(51,51,51)',
+    hotelName: 'Horizon Hotel AI-assistent',
+    label: 'Probeer hier de AI-assistent van Horizon Hotel'
+  };
+</script>
 <script src="https://connect.guestcompass.nl/widget/ebbe7ab2-e9ea-4eee-bcf5-6aa9ca179c89.js"></script>
+<script>
+  // Open widget when demo button is clicked
+  document.addEventListener('DOMContentLoaded', function() {
+    var demoBtn = document.getElementById('demo-chat-btn');
+    if (demoBtn) {
+      demoBtn.addEventListener('click', function() {
+        var btn = document.getElementById('gc-widget-btn');
+        if (btn && !btn.classList.contains('gc-open')) btn.click();
+      });
+    }
+  });
+</script>
 </body>
 </html>
