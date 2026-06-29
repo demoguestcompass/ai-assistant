@@ -757,23 +757,19 @@ setInterval(() => {
     label: 'Probeer hier de AI-assistent van Horizon Hotel'
   };
 
-  // Force widget button color and add label after load
-  function applyWidgetStyle() {
+  // Watch for widget button and force style
+  var widgetObserver = new MutationObserver(function() {
     var btn = document.getElementById('gc-widget-btn');
     var lbl = document.getElementById('gc-widget-label');
     if (btn) {
-      btn.style.background = 'rgb(51,51,51)';
-      btn.style.setProperty('background', 'rgb(51,51,51)', 'important');
+      btn.setAttribute('style', 'background:rgb(51,51,51) !important;position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);z-index:99999');
     }
     if (lbl) {
-      lbl.style.display = 'block';
-      lbl.textContent = 'Probeer de AI-assistent van Horizon Hotel';
+      lbl.textContent = 'Praat met de AI-assistent van Horizon Hotel';
+      lbl.setAttribute('style', 'display:block !important;opacity:1 !important;position:fixed;bottom:32px;right:92px;background:white;color:#333;font-family:sans-serif;font-size:13px;padding:8px 14px;border-radius:20px;box-shadow:0 2px 10px rgba(0,0,0,0.15);white-space:nowrap;z-index:99999;pointer-events:none');
     }
-  }
-  // Try multiple times as widget loads async
-  setTimeout(applyWidgetStyle, 500);
-  setTimeout(applyWidgetStyle, 1500);
-  setTimeout(applyWidgetStyle, 3000);
+  });
+  widgetObserver.observe(document.body, {childList: true, subtree: true});
 </script>
 <script src="https://connect.guestcompass.nl/widget/ebbe7ab2-e9ea-4eee-bcf5-6aa9ca179c89.js"></script>
 <script>
