@@ -67,16 +67,16 @@ a{text-decoration:none;color:inherit}
 .nav-mobile-menu{display:none}
 
 /* ===== HERO ===== */
-.hero{position:relative;min-height:auto;display:flex;align-items:center;background:rgb(51,51,51);overflow:hidden;padding-top:108px}
+.hero{position:relative;min-height:auto;display:flex;align-items:center;background:#ffffff;overflow:hidden;padding-top:108px}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:none;z-index:1}
-.hero-glow{position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,119,0,0.12) 0%,transparent 70%);z-index:1}
-.hero-glow-2{position:absolute;bottom:-30%;left:-10%;width:800px;height:800px;background:radial-gradient(circle,rgba(249,115,22,0.08) 0%,transparent 70%);z-index:1}
+.hero-glow{display:none}
+.hero-glow-2{display:none}
 .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:48px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.25);color:var(--gold);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:24px}
 .hero-badge svg{width:16px;height:16px}
-.hero h1{font-family:var(--font-heading);font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:24px;letter-spacing:-0.5px}
+.hero h1{font-family:var(--font-heading);font-size:clamp(36px,5vw,56px);font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:24px;letter-spacing:-0.5px}
 .hero h1 span{color:var(--gold);display:inline}
-.hero-sub{font-size:18px;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:40px;max-width:520px}
+.hero-sub{font-size:18px;color:var(--gray-600);line-height:1.7;margin-bottom:40px;max-width:520px}
 .hero-buttons{display:flex;gap:16px;flex-wrap:wrap}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:10px;font-weight:600;font-size:15px;transition:all .25s;border:none;cursor:pointer;letter-spacing:0.2px}
 .btn-primary:hover{background:#EA6C0A;transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,0.4)}
@@ -99,7 +99,7 @@ a{text-decoration:none;color:inherit}
 .hero-stats{display:flex;gap:32px;margin-top:48px}
 .hero-stat{text-align:center}
 .hero-stat-num{font-family:var(--font-heading);font-size:28px;font-weight:700;color:var(--gold)}
-.hero-stat-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
+.hero-stat-label{font-size:12px;color:var(--gray-500);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
 
 /* ===== SECTION STYLES ===== */
 .section{padding:100px 24px}
