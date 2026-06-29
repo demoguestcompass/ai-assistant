@@ -150,6 +150,8 @@ a{text-decoration:none;color:inherit}
 .demo-bg{position:absolute;inset:0;background:#ffffff}
 .demo-bg::before{content:'';position:absolute;inset:0;background:none}
 .messaging-band::before{content:'';position:absolute;inset:0;background:none;pointer-events:none}
+.flow-steps{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+@media(max-width:640px){.flow-steps{grid-template-columns:1fr 1fr;gap:16px}.flow-steps>div:last-child{grid-column:1/-1}}
 .demo-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:420px 1fr;gap:80px;align-items:center}
 .demo-text{text-align:left}
 .demo-phone{display:flex;justify-content:center;align-items:center}
@@ -426,7 +428,7 @@ a{text-decoration:none;color:inherit}
           <p style="font-size:14px;color:rgba(255,255,255,0.62);line-height:1.7;margin:0;">Van eerste interesse tot lang na vertrek stuurt GuestCompass automatisch het juiste bericht op het juiste moment &mdash; via WhatsApp, e-mail of sms. In de taal van de gast, zonder dat jij er iets voor hoeft te doen.</p>
         </div>
       </div>
-      <div style="position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;">
+      <div class="flow-steps">
         <div style="position:absolute;top:21px;left:10%;right:10%;height:1px;background:rgba(255,255,255,0.15);"></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1;">
           <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;">
