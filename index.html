@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="shortcut icon" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png?v=2">
+  <link rel="shortcut icon" href="favicon.png?v=2">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GuestCompass AI | Slimme AI-oplossingen voor de hospitality</title>
@@ -42,7 +42,7 @@
   --radius-xl:24px;
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:var(--font-body);color:var(--gray-800);line-height:1.6;overflow-x:hidden}
+body{font-family:var(--font-body);color:var(--gray-800);line-height:1.6;overflow-x:hidden;padding-top:36px}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 
@@ -53,10 +53,10 @@ a{text-decoration:none;color:inherit}
 @media(max-width:768px){.qr-block{display:none}}
 
 /* ===== TOPBAR ===== */
-.topbar{background:rgb(51,51,51);color:rgba(255,255,255,0.6);font-size:12px;padding:0 24px;height:36px;display:flex;align-items:center;justify-content:flex-end;gap:24px}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:1001;background:rgb(51,51,51);color:rgba(255,255,255,0.6);font-size:12px;padding:0 24px;height:36px;display:flex;align-items:center;justify-content:flex-end;gap:24px}
 .topbar a{color:rgba(255,255,255,0.6);text-decoration:none;transition:color .2s}
 .topbar a:hover{color:#ffffff}
-@media(max-width:768px){.topbar{display:none}}
+@media(max-width:768px){.topbar{display:none}body{padding-top:0}.navbar{top:0}}
 
 /* ===== NAVBAR ===== */
 .navbar{position:fixed;top:36px;left:0;right:0;z-index:1000;background:#ffffff;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-bottom:1px solid rgba(0,0,0,0.05);transition:all .3s ease}
@@ -69,6 +69,7 @@ a{text-decoration:none;color:inherit}
 .nav-links a:hover{color: var(--gold)}
 .nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:10px 24px;border-radius:8px;font-weight:600;font-size:14px;transition:all .2s;border:none;cursor:pointer}
 .nav-cta:hover{background:#EA6C0A;transform:translateY(-1px);box-shadow:0 4px 12px rgba(249,115,22,0.35)}
+.nav-links a.nav-cta:hover{color:var(--navy)}
 .nav-mobile-toggle{display:none;background:none;border:none;color:var(--gray-800);cursor:pointer;padding:8px}
 .nav-mobile-menu{display:none}
 
@@ -266,7 +267,7 @@ a{text-decoration:none;color:inherit}
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
+    <a href="https://www.guestcompass.nl" class="nav-logo">
       <img src="https://www.guestcompass.nl/dist/website/img/logo.svg" alt="GuestCompass" style="height:36px;width:auto;">
     </a>
     <div class="nav-links">
@@ -278,7 +279,7 @@ a{text-decoration:none;color:inherit}
       <a href="#contact" class="nav-cta">Contact opnemen</a>
     </div>
     <button class="nav-mobile-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('active')" aria-label="Menu">
-      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
     </button>
   </div>
   <div class="nav-mobile-menu" id="mobileMenu">
@@ -306,7 +307,7 @@ a{text-decoration:none;color:inherit}
       <div class="hero-buttons">
         <a href="#contact" class="btn-primary">
           Neem contact op
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10m-4-4l4 4-4 4"/></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10m-4-4l4 4-4 4"/></svg>
         </a>
 
       </div>
@@ -397,7 +398,7 @@ a{text-decoration:none;color:inherit}
       <!-- Tile 1: AI-Assistent & Chatbot -->
       <div class="feature-card reveal reveal-delay-1">
         <div class="feature-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         </div>
         <h3>AI-Assistent &amp; Chatbot</h3>
         <p>Een slimme AI beantwoordt gastvragen dag en nacht &mdash; in elke taal, via de website, app en WhatsApp. Kan de AI iets niet oplossen? Dan krijgt je team direct een notificatie. Communiceert vloeiend in alle talen.</p>
@@ -406,7 +407,7 @@ a{text-decoration:none;color:inherit}
       <!-- Tile 2: Online Pre-check-in -->
       <div class="feature-card reveal reveal-delay-2">
         <div class="feature-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <h3>Online Pre-check-in</h3>
         <p>Gasten ontvangen voor aankomst automatisch een persoonlijke incheck-link &mdash; de receptie hoeft er niets voor te doen. Beschikbaar voor Mews en Bookzo.</p>
@@ -415,7 +416,7 @@ a{text-decoration:none;color:inherit}
       <!-- Tile 3: Website Widget & Webapp -->
       <div class="feature-card reveal reveal-delay-3">
         <div class="feature-icon">
-          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
         <h3>Website widget &amp; webapp voor gasten</h3>
         <p>Een slimme widget op je website vangt pre-booking vragen op. Zo krijg je inzicht in wat gasten zich afvragen voordat ze een boeking maken. En gasten hebben altijd direct toegang tot alle informatie!</p>
@@ -427,7 +428,7 @@ a{text-decoration:none;color:inherit}
     <div class="messaging-band reveal" style="margin-top:48px;background:rgb(51,51,51);border-radius:14px;padding:32px 36px 36px;position:relative;overflow:hidden;">
       <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:32px;">
         <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="22" height="22" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6l9-3 9 3M5 9v9a1 1 0 001 1h12a1 1 0 001-1V9"/></svg>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6l9-3 9 3M5 9v9a1 1 0 001 1h12a1 1 0 001-1V9"/></svg>
         </div>
         <div>
           <h4 style="font-family:inherit;font-size:17px;font-weight:700;color:#fff;margin:0 0 8px;line-height:1.2;">Alles samengebracht in &eacute;&eacute;n messaging flow</h4>
@@ -438,7 +439,7 @@ a{text-decoration:none;color:inherit}
         <div style="position:absolute;top:21px;left:10%;right:10%;height:1px;background:rgba(255,255,255,0.15);"></div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1;">
           <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;">
-            <svg width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M4.9 4.9L3 3"/></svg>
+            <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M4.9 4.9L3 3"/></svg>
           </div>
           <div style="text-align:center;">
             <div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.92);">Pre-booking</div>
@@ -447,7 +448,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1;">
           <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;">
-            <svg width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+            <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
           </div>
           <div style="text-align:center;">
             <div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.92);">Voor aankomst</div>
@@ -456,7 +457,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1;">
           <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;">
-            <svg width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><path d="M9 22V12h6v10"/></svg>
+            <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a1 1 0 01-1 1H4a1 1 0 01-1-1z"/><path d="M9 22V12h6v10"/></svg>
           </div>
           <div style="text-align:center;">
             <div style="font-size:14px;font-weight:600;color:#fff;">Tijdens verblijf</div>
@@ -465,7 +466,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1;">
           <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;">
-            <svg width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
           </div>
           <div style="text-align:center;">
             <div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.92);">Vertrek</div>
@@ -474,7 +475,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div style="display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1;">
           <div style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;">
-            <svg width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
           <div style="text-align:center;">
             <div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.92);">Na vertrek</div>
@@ -526,11 +527,11 @@ a{text-decoration:none;color:inherit}
       <div class="demo-buttons" style="justify-content:flex-start">
         <a href="https://demoguestcompass.github.io/horizon-hotel/" target="_blank" class="btn-primary">
           Bekijk Horizon Hotel Demo
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17V7m0 0L17 7M7 7l10 10" transform="translate(-3,-3)"/></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17V7m0 0L17 7M7 7l10 10" transform="translate(-3,-3)"/></svg>
         </a>
         <a href="https://horizonhotel.guestinfo.com/NL?_ca=1" target="_blank" class="btn-secondary">
           Chat met de AI-Assistent
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" transform="scale(0.65) translate(1,1)"/></svg>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" transform="scale(0.65) translate(1,1)"/></svg>
         </a>
       </div>
       <div class="qr-block">
@@ -553,7 +554,7 @@ a{text-decoration:none;color:inherit}
       <p style="font-size:17px;color:var(--gray-500);line-height:1.7;margin-bottom:32px">GuestCompass ondersteunt tientallen PMS-systemen. Wij regelen de koppeling &mdash; jij hoeft er weinig voor te doen. Zodra die koppeling er is, is de AI-add-on direct beschikbaar.</p>
       <a href="#contact" class="btn-primary" style="display:inline-flex;margin:0 auto">
         Laten we even kijken wat mogelijk is
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10m-4-4l4 4-4 4"/></svg>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10m-4-4l4 4-4 4"/></svg>
       </a>
     </div>
   </div>
@@ -584,31 +585,31 @@ a{text-decoration:none;color:inherit}
         <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A4C;margin:0 0 20px;padding-bottom:20px;border-bottom:1px solid #F3F4F6;">&#10003; Eerste 3 maanden gratis</p>
         <ul class="pricing-features">
           <li>
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
             <span>AI-assistent, chatbot &amp; messaging flows inbegrepen</span>
           </li>
           <li>
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
             <span>Website widget &amp; webapp voor gasten</span>
           </li>
           <li>
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
             <span>WhatsApp, e-mail &amp; SMS integratie</span>
           </li>
           <li>
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
             <span>Backend chatbot &amp; receptie-notificaties</span>
           </li>
           <li>
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
             <span>Auto FAQ-suggesties &amp; zelflerend systeem</span>
           </li>
           <li>
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
             <span>Alle talen ondersteund</span>
           </li>
           <li>
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
             <span>PMS integratie </em></span>
           </li>
         </ul>
@@ -639,7 +640,7 @@ a{text-decoration:none;color:inherit}
         <p style="margin-bottom:20px;">Plan een vrijblijvend gesprek of stuur een bericht. Ik denk graag mee over hoe AI jouw gastbeleving kan verbeteren.</p>
         <div class="contact-item">
           <div class="contact-item-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
           </div>
           <div class="contact-item-text">
             <div class="contact-item-label">E-mail</div>
@@ -648,7 +649,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" transform="scale(0.85) translate(1.5,1.5)"/><path d="M2 12h20" transform="scale(0.85) translate(1.5,1.5)"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" transform="scale(0.85) translate(1.5,1.5)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
           </div>
           <div class="contact-item-text">
             <div class="contact-item-label">Website</div>
@@ -657,7 +658,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div class="contact-item">
           <div class="contact-item-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" transform="scale(0.85) translate(1.5,1.5)"/><circle cx="12" cy="10" r="3" transform="scale(0.85) translate(1.5,1.5)"/></svg>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div class="contact-item-text">
             <div class="contact-item-label">Locatie</div>
