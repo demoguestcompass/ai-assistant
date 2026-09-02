@@ -254,7 +254,423 @@ a{text-decoration:none;color:inherit}
 .pricing-disclaimer{font-size:15px;color:rgba(255,255,255,0.88);line-height:1.55;padding-top:12px;padding-bottom:12px;padding-left:20px;padding-right:20px;margin:0}
 .pricing-disclaimer a{color:rgba(255,255,255,0.88);text-decoration:underline}
 .pricing-disclaimer a:hover{color:#fff}
+
+/* ===== FAQ ===== */
+.faq-groups{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+.faq-group-head{margin-bottom:8px}
+.faq-group-label{font-size:13px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.faq-group-lede{font-size:15px;color:var(--gray-500);line-height:1.6;margin:0}
+.faq-item{border-top:1px solid var(--gray-200)}
+.faq-group .faq-item:last-child{border-bottom:1px solid var(--gray-200)}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:20px 0;font-size:17px;font-weight:600;color:var(--gray-900);line-height:1.45;transition:color .2s}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--gold)}
+.faq-item summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:4px}
+.faq-item summary::after{content:'';flex-shrink:0;width:10px;height:10px;margin-top:7px;border-right:2px solid var(--gray-300);border-bottom:2px solid var(--gray-300);transform:rotate(45deg);transition:transform .25s ease,border-color .2s}
+.faq-item[open] summary::after{transform:rotate(-135deg);border-color:var(--gold)}
+.faq-answer{padding:0 40px 24px 0}
+.faq-answer p{font-size:16px;color:var(--gray-600);line-height:1.7;margin:0 0 12px}
+.faq-answer p:last-child{margin-bottom:0}
+.faq-table-wrap{max-width:820px;margin:44px auto 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.faq-table-title{font-size:13px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.faq-table{border-collapse:collapse;width:100%;min-width:620px;font-size:15px;background:var(--white)}
+.faq-table th,.faq-table td{text-align:left;padding:14px 16px 14px 0;border-bottom:1px solid var(--gray-200);vertical-align:top}
+.faq-table thead th{font-size:14px;font-weight:600;color:var(--gray-900);line-height:1.35;border-bottom:2px solid var(--gray-300);vertical-align:bottom}
+.faq-table tbody th{font-weight:400;color:var(--gray-600);padding-right:24px}
+.faq-table td{font-weight:500;color:var(--gray-800);white-space:nowrap}
+.faq-table td.is-no{color:var(--gray-300);font-weight:400}
+.faq-table tr.faq-table-price th,.faq-table tr.faq-table-price td{border-bottom:none;border-top:2px solid var(--gray-300);padding-top:16px;font-weight:700;color:var(--gray-900)}
+.faq-table tr.faq-table-price td{color:var(--gold)}
+.faq-table-note{max-width:820px;margin:14px auto 0;font-size:14px;color:var(--gray-500);line-height:1.6}
+.faq-cta{max-width:820px;margin:48px auto 0;padding:32px;background:var(--gold-light);border-radius:var(--radius-lg);text-align:center}
+.faq-cta h3{font-family:var(--font-heading);font-size:20px;font-weight:700;color:var(--gray-900);margin:0 0 8px}
+.faq-cta p{font-size:15px;color:var(--gray-600);margin:0 0 20px}
+.faq-cta a{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:12px 28px;border-radius:8px;font-weight:600;font-size:15px;transition:all .2s}
+.faq-cta a:hover{background:#EA6C0A;transform:translateY(-1px);box-shadow:0 4px 12px rgba(249,115,22,0.35)}
+@media(max-width:768px){
+  .faq-groups{gap:36px}
+  .faq-item summary{font-size:16px;padding:18px 0}
+  .faq-answer{padding-right:16px}
+  .faq-cta{padding:24px}
+}
 </style>
+<!-- ===== FAQ STRUCTURED DATA ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wat doet de AI-assistent precies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De assistent beantwoordt vragen van gasten, dag en nacht, in elke taal. Over de wifi, de parkeerplaats, de ontbijttijden, hoe de deur opengaat. Alles wat nu bij de receptie of op de telefoon van de eigenaar terechtkomt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "In welke talen werkt het?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In alle talen. De assistent antwoordt in de taal waarin de gast begint, ook als dat Pools of Portugees is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Waar haalt de assistent zijn informatie vandaan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Uit de informatie die je zelf aanlevert: een vragenformulier waarin je de praktische zaken van je accommodatie invult, aangevuld met instructies voor hoe de assistent moet antwoorden. Dus geen algemene antwoorden van internet, maar je eigen huisregels, tijden en adressen. Vragen die de assistent nog niet kan beantwoorden komen als suggestie terug, zodat de kennisbank meegroeit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe lang duurt het voordat het werkt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Doorgaans binnen een week live."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoeveel werk is het om het bij te houden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Na het inrichten weinig. De assistent stelt zelf nieuwe vragen en antwoorden voor op basis van wat gasten daadwerkelijk vragen, dus de kennisbank groeit mee zonder dat iemand ernaast moet zitten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Blijft de gastvrijheid dan niet weg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De assistent neemt de vraag om kwart over elf 's avonds over de wifi over. Niet het gesprek dat aandacht vraagt. Dat blijft mensenwerk, en dat hoort ook zo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hebben we WhatsApp nodig om de AI-assistent te gebruiken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. WhatsApp is een kanaal, geen voorwaarde. Je kunt de assistent op je eigen website zetten, of alleen in de gastenwebapp gebruiken. Dat is een volwaardige opzet, geen afgeslankte versie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen we alleen de widget op onze website nemen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Dan staat de assistent op de site en beantwoordt hij de vragen van bezoekers die zich nog aan het ori\u00ebnteren zijn. Voor veel accommodaties is dat het meest zichtbare resultaat, want daar zitten de mensen die nog moeten boeken."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Moeten we al klant zijn bij GuestCompass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. De assistent is los af te nemen, ook zonder gastenwebapp en zonder koppeling met een reserveringssysteem. We vullen dan samen het vragenformulier in en de assistent staat op je eigen website."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Werkt het ook zonder koppeling met ons reserveringssysteem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De assistent zelf werkt gewoon, ja. Wat je zonder koppeling niet hebt, zijn de automatische berichten die op boekingsmomenten worden verstuurd, en antwoorden die op de reservering van een specifieke gast zijn gebaseerd. Daar is reserveringsdata voor nodig. Dus: alle vragen beantwoorden gaat prima zonder koppeling. Zelf berichten uitsturen op het juiste moment niet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Verandert de prijs als we minder kanalen gebruiken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. De maandprijs is in alle opzetten gelijk. Alleen de website, alleen de webapp, of alles gekoppeld: hetzelfde bedrag. Wat w\u00e9l verschilt zijn de berichtkosten die Meta rekent, en die heb je alleen als je WhatsApp gebruikt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen we klein beginnen en later uitbreiden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dat is precies wat we aanraden. Begin met de widget op de website, kijk een paar weken wat gasten vragen, en breid daarna uit naar de webapp of WhatsApp. Omdat de prijs niet meebeweegt, kost dat uitbreiden verder niets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe komt de assistent op onze website?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Je krijgt van ons een widgetcode die de websitebouwer plaatst. Vanaf dat moment staat de assistent op de site, via het chaticoon dat je op steeds meer websites ziet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan de widget in onze huisstijl?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, de kleur van de widget is instelbaar, zodat hij niet als vreemd element op de site staat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is dat dezelfde assistent als in de webapp en op WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dezelfde assistent, dezelfde kennis. E\u00e9n bron van informatie, meerdere ingangen, en alles komt op dezelfde plek binnen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat gebeurt er met vragen van mensen die nog niet hebben geboekt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die gesprekken zijn ook zichtbaar, onder 'unknown' gasten. Daar staat letterlijk waar mensen over twijfelen voordat ze boeken, en dat is bruikbare informatie voor marketing en operations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Moeten wij daar dan iets mee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Niets verplicht. Maar lees ze een week door en je herschrijft je eigen website. De helft van die vragen hoort in de FAQ te staan, waar nu iets anders staat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen wij de WhatsApp-gesprekken meelezen en beantwoorden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, realtime. Alle berichten lopen door dezelfde tijdlijn. Je pauzeert de assistent met een klik en neemt het gesprek zelf over."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen wij een gesprek van de AI overnemen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Op elk moment. En de volledige chathistorie van die gast staat erbij, dus je stapt in met de context er al bij."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat als de assistent een vraag niet kan beantwoorden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dan wacht hij niet af. Er gaat automatisch een e-mail naar de inbox die je daarvoor instelt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Waar vinden we de gesprekken terug? Is er een aparte app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Geen aparte app. Alles staat in Connect, de backend van GuestCompass, samen met het dashboard, de gebruikersanalyses en de gasten in house."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen meerdere medewerkers tegelijk toegang hebben?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Er kunnen meerdere gebruikersaccounts worden aangemaakt, elk met eigen rechten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Behouden wij ons huidige WhatsApp-nummer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Een bestaand nummer kan worden gemigreerd naar het WhatsApp Business Platform. Voor gasten blijft het nummer hetzelfde, ook voor wie het al in zijn telefoon heeft staan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat gebeurt er met onze bestaande WhatsApp-geschiedenis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die gaat niet mee. Meta verhuist geen gesprekshistorie of contactenlijst. Ons advies is om v\u00f3\u00f3r de migratie een export te maken als naslag. Alles vanaf de migratiedatum staat volledig in GuestCompass."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen we de WhatsApp Business App daarna nog gebruiken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Op dat nummer niet. Een telefoonnummer kan maar in \u00e9\u00e9n van de twee systemen bestaan. Vind je dat te ingrijpend, gebruik dan een nieuw nummer voor de assistent en houd je bestaande nummer zoals het is."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Zien gasten dat ze met een AI praten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dat bepaal je zelf. De meeste accommodaties zijn er open over, en in de praktijk maakt het gasten weinig uit zolang het antwoord klopt en snel komt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan de digitale sleutel via WhatsApp worden verstuurd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Veel hotels sturen al direct na de boeking een eerste WhatsApp-bericht. Dat wekt vertrouwen, en een gast die al een keer heeft geappt vult daarna ook de rest van de formaliteiten sneller in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Moeten gasten een app downloaden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. De sleutel is een link. De gast klikt, en de deur gaat open met een schuifknop in de browser."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen we zien of de sleutel is aangekomen en gebruikt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, per gast inzichtelijk in de omgeving waar de digitale sleutels worden beheerd. Dus niet alleen of de sleutel verstuurd is, maar ook wat de gast er vervolgens mee heeft gedaan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan de sleutel automatisch een paar dagen voor aankomst?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, de timing stel je zelf in: een aantal dagen of uren voor aankomst, of op een ander moment in de reis van de gast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat als de gast een verkeerd telefoonnummer heeft opgegeven?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dan stel je in de messaging flow in dat hetzelfde bericht via WhatsApp \u00e9n e-mail gaat, zodat de gast altijd bereikbaar is. Automatisch detecteren dat een WhatsApp ongeopend bleef en d\u00e1n pas een e-mail sturen, kan op dit moment nog niet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen we automatisch berichten sturen op vaste momenten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Direct na de boeking, voor aankomst, na check-in, tijdens het verblijf, voor of na vertrek. Per bericht kies je het kanaal: e-mail, WhatsApp of SMS."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen we gasten om informatie vragen, zoals aankomsttijd en kenteken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Je stuurt automatisch een bericht met een link naar een formulier in de webapp. Zodra een gast het invult, krijgt de receptie daarvan een melding. Het verwerken van die informatie is op dit moment nog een handmatige stap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen we per kamertype andere informatie sturen, bijvoorbeeld een instructievideo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. De assistent stuurt de weblink mee die bij dat specifieke kamertype hoort, in de juiste taal. De video's zet je in de webapp op een 'unlinked' pagina: niet vindbaar door te navigeren, alleen via de directe link die de assistent doorgeeft."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wij hebben verschillende soorten gasten. Kan dat per situatie anders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Er zijn kant-en-klare profielen om vanuit te starten, bijvoorbeeld voor een 24-uursreceptie, voor zelf inchecken, en voor een vakantiepark. Daar pas je vervolgens je eigen momenten en teksten in aan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Werkt dit met ons reserveringssysteem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GuestCompass koppelt met tientallen reserveringssystemen. Wat een koppeling precies doorgeeft verschilt per systeem, dus dat lopen we in een gesprek langs voor jullie eigen situatie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "En als ons systeem er niet bij zit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dan werkt de assistent nog steeds, op basis van de informatie die je zelf aanlevert. Je mist alleen de automatische berichten op boekingsmomenten en de antwoorden die op een specifieke reservering zijn gebaseerd."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Werkt dit met onze sloten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, GuestCompass werkt met de gangbare systemen voor mobiele toegang. Welke variant van jouw slotsysteem ondersteund wordt checken we vooraf, want dat verschilt soms per productlijn van dezelfde fabrikant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hebben we hier een IT-afdeling voor nodig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. Het enige dat iemand met websitetoegang moet doen, is de widgetcode plaatsen. De rest richten wij samen met jou in."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kunnen we eerst de beheeromgeving zien?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Graag. In een half uur lopen we door Connect: de gesprekken, de assistent, de automatische berichten, de digitale sleutels en het dashboard. Niet als demo-hotel, maar zoals het er op een gewone dinsdagmiddag uitziet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wat kost de AI-assistent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u20ac39 per maand. De eerste drie maanden zijn kosteloos, maandelijks opzegbaar, geen opstartkosten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Betalen we meer als we meer kanalen gebruiken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Voor de assistent niet. Website, webapp en WhatsApp zitten in hetzelfde bedrag. Het enige dat erbij komt zijn de berichtkosten van Meta, en die gelden alleen voor WhatsApp."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Komen er kosten per WhatsApp-bericht bij?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, die rekent Meta rechtstreeks. Praktische berichten zoals een pre-check-in of een digitale sleutel kosten een paar cent. Promotionele berichten zijn in Nederland een stuk duurder."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hoe houden we die kosten laag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Door per bericht het juiste kanaal te kiezen. E-mail is kosteloos, dus WhatsApp gebruik je voor de berichten die echt gelezen moeten worden. En doordat de widget op je eigen website staat, beginnen gasten vaak zelf het gesprek, wat het voordeligste tarief oplevert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "En als we WhatsApp helemaal niet gebruiken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dan zijn er geen berichtkosten. Alleen het maandbedrag voor de assistent, en dat is hetzelfde bedrag als met WhatsApp."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Zit er een contract aan vast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nee. Maandelijks opzegbaar."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -276,6 +692,7 @@ a{text-decoration:none;color:inherit}
       <a href="#hoe-het-werkt">Hoe het werkt</a>
       <a href="#demo">Demo</a>
       <a href="#prijzen">Prijzen</a>
+      <a href="#faq">FAQ</a>
       <a href="https://tutorials.guestcompass.nl/assistant-chat-messaging">Tutorials</a>
       <a href="#contact" class="nav-cta">Contact opnemen</a>
     </div>
@@ -288,6 +705,7 @@ a{text-decoration:none;color:inherit}
     <a href="#hoe-het-werkt" onclick="this.parentElement.classList.remove('active')">Hoe het werkt</a>
     <a href="#demo" onclick="this.parentElement.classList.remove('active')">Demo</a>
     <a href="#prijzen" onclick="this.parentElement.classList.remove('active')">Prijzen</a>
+    <a href="#faq" onclick="this.parentElement.classList.remove('active')">FAQ</a>
     <a href="https://tutorials.guestcompass.nl/assistant-chat-messaging" onclick="this.parentElement.classList.remove('active')">Tutorials</a>
     <a href="https://www.guestcompass.nl/branches/hotels" style="color:var(--gray-500);font-size:14px;">&#8592; GuestCompass | Hotels</a>
     <a href="#contact" onclick="this.parentElement.classList.remove('active')">Contact opnemen</a>
@@ -618,6 +1036,403 @@ a{text-decoration:none;color:inherit}
         <a href="#contact" class="pricing-cta">Neem contact op</a>
         <p class="pricing-note">Exclusief Meta/WhatsApp berichtenkosten &mdash; geen opzegkosten, maandelijks opzegbaar</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section section-alt" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Veelgestelde vragen</h2>
+      <p class="section-subtitle">De vragen die hoteliers ons echt stellen, inclusief de vragen waarop het antwoord nu nog nee is.</p>
+    </div>
+    <div class="faq-groups">
+      <div class="faq-group reveal">
+        <div class="faq-group-head">
+          <div class="faq-group-label">De assistent in het kort</div>
+        </div>
+        <details class="faq-item">
+          <summary>Wat doet de AI-assistent precies?</summary>
+          <div class="faq-answer">
+            <p>De assistent beantwoordt vragen van gasten, dag en nacht, in elke taal. Over de wifi, de parkeerplaats, de ontbijttijden, hoe de deur opengaat. Alles wat nu bij de receptie of op de telefoon van de eigenaar terechtkomt.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>In welke talen werkt het?</summary>
+          <div class="faq-answer">
+            <p>In alle talen. De assistent antwoordt in de taal waarin de gast begint, ook als dat Pools of Portugees is.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Waar haalt de assistent zijn informatie vandaan?</summary>
+          <div class="faq-answer">
+            <p>Uit de informatie die je zelf aanlevert: een vragenformulier waarin je de praktische zaken van je accommodatie invult, aangevuld met instructies voor hoe de assistent moet antwoorden. Dus geen algemene antwoorden van internet, maar je eigen huisregels, tijden en adressen.</p>
+            <p>Vragen die de assistent nog niet kan beantwoorden komen als suggestie terug, zodat de kennisbank meegroeit.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Hoe lang duurt het voordat het werkt?</summary>
+          <div class="faq-answer">
+            <p>Doorgaans binnen een week live.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Hoeveel werk is het om het bij te houden?</summary>
+          <div class="faq-answer">
+            <p>Na het inrichten weinig. De assistent stelt zelf nieuwe vragen en antwoorden voor op basis van wat gasten daadwerkelijk vragen, dus de kennisbank groeit mee zonder dat iemand ernaast moet zitten.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Blijft de gastvrijheid dan niet weg?</summary>
+          <div class="faq-answer">
+            <p>De assistent neemt de vraag om kwart over elf 's avonds over de wifi over. Niet het gesprek dat aandacht vraagt. Dat blijft mensenwerk, en dat hoort ook zo.</p>
+          </div>
+        </details>
+      </div>
+      <div class="faq-group reveal">
+        <div class="faq-group-head">
+          <div class="faq-group-label">Wat je nodig hebt om te starten</div>
+          <p class="faq-group-lede">De vragen waar het vaakst verwarring over is. Korte versie: veel minder dan de meeste mensen denken.</p>
+        </div>
+        <details class="faq-item">
+          <summary>Hebben we WhatsApp nodig om de AI-assistent te gebruiken?</summary>
+          <div class="faq-answer">
+            <p>Nee. WhatsApp is een kanaal, geen voorwaarde. Je kunt de assistent op je eigen website zetten, of alleen in de gastenwebapp gebruiken. Dat is een volwaardige opzet, geen afgeslankte versie.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen we alleen de widget op onze website nemen?</summary>
+          <div class="faq-answer">
+            <p>Ja. Dan staat de assistent op de site en beantwoordt hij de vragen van bezoekers die zich nog aan het ori&euml;nteren zijn. Voor veel accommodaties is dat het meest zichtbare resultaat, want daar zitten de mensen die nog moeten boeken.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Moeten we al klant zijn bij GuestCompass?</summary>
+          <div class="faq-answer">
+            <p>Nee. De assistent is los af te nemen, ook zonder gastenwebapp en zonder koppeling met een reserveringssysteem. We vullen dan samen het vragenformulier in en de assistent staat op je eigen website.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Werkt het ook zonder koppeling met ons reserveringssysteem?</summary>
+          <div class="faq-answer">
+            <p>De assistent zelf werkt gewoon, ja. Wat je zonder koppeling niet hebt, zijn de automatische berichten die op boekingsmomenten worden verstuurd, en antwoorden die op de reservering van een specifieke gast zijn gebaseerd. Daar is reserveringsdata voor nodig.</p>
+            <p>Dus: alle vragen beantwoorden gaat prima zonder koppeling. Zelf berichten uitsturen op het juiste moment niet.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Verandert de prijs als we minder kanalen gebruiken?</summary>
+          <div class="faq-answer">
+            <p>Nee. De maandprijs is in alle opzetten gelijk. Alleen de website, alleen de webapp, of alles gekoppeld: hetzelfde bedrag. Wat w&eacute;l verschilt zijn de berichtkosten die Meta rekent, en die heb je alleen als je WhatsApp gebruikt.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen we klein beginnen en later uitbreiden?</summary>
+          <div class="faq-answer">
+            <p>Dat is precies wat we aanraden. Begin met de widget op de website, kijk een paar weken wat gasten vragen, en breid daarna uit naar de webapp of WhatsApp. Omdat de prijs niet meebeweegt, kost dat uitbreiden verder niets.</p>
+          </div>
+        </details>
+      </div>
+      <div class="faq-group reveal">
+        <div class="faq-group-head">
+          <div class="faq-group-label">Je eigen website</div>
+        </div>
+        <details class="faq-item">
+          <summary>Hoe komt de assistent op onze website?</summary>
+          <div class="faq-answer">
+            <p>Je krijgt van ons een widgetcode die de websitebouwer plaatst. Vanaf dat moment staat de assistent op de site, via het chaticoon dat je op steeds meer websites ziet.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kan de widget in onze huisstijl?</summary>
+          <div class="faq-answer">
+            <p>Ja, de kleur van de widget is instelbaar, zodat hij niet als vreemd element op de site staat.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is dat dezelfde assistent als in de webapp en op WhatsApp?</summary>
+          <div class="faq-answer">
+            <p>Dezelfde assistent, dezelfde kennis. E&eacute;n bron van informatie, meerdere ingangen, en alles komt op dezelfde plek binnen.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Wat gebeurt er met vragen van mensen die nog niet hebben geboekt?</summary>
+          <div class="faq-answer">
+            <p>Die gesprekken zijn ook zichtbaar, onder 'unknown' gasten. Daar staat letterlijk waar mensen over twijfelen voordat ze boeken, en dat is bruikbare informatie voor marketing en operations.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Moeten wij daar dan iets mee?</summary>
+          <div class="faq-answer">
+            <p>Niets verplicht. Maar lees ze een week door en je herschrijft je eigen website. De helft van die vragen hoort in de FAQ te staan, waar nu iets anders staat.</p>
+          </div>
+        </details>
+      </div>
+      <div class="faq-group reveal">
+        <div class="faq-group-head">
+          <div class="faq-group-label">WhatsApp</div>
+          <p class="faq-group-lede">Optioneel, maar hier zit bij de meeste accommodaties de meeste onzekerheid.</p>
+        </div>
+        <details class="faq-item">
+          <summary>Kunnen wij de WhatsApp-gesprekken meelezen en beantwoorden?</summary>
+          <div class="faq-answer">
+            <p>Ja, realtime. Alle berichten lopen door dezelfde tijdlijn. Je pauzeert de assistent met een klik en neemt het gesprek zelf over.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen wij een gesprek van de AI overnemen?</summary>
+          <div class="faq-answer">
+            <p>Op elk moment. En de volledige chathistorie van die gast staat erbij, dus je stapt in met de context er al bij.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Wat als de assistent een vraag niet kan beantwoorden?</summary>
+          <div class="faq-answer">
+            <p>Dan wacht hij niet af. Er gaat automatisch een e-mail naar de inbox die je daarvoor instelt.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Waar vinden we de gesprekken terug? Is er een aparte app?</summary>
+          <div class="faq-answer">
+            <p>Geen aparte app. Alles staat in Connect, de backend van GuestCompass, samen met het dashboard, de gebruikersanalyses en de gasten in house.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen meerdere medewerkers tegelijk toegang hebben?</summary>
+          <div class="faq-answer">
+            <p>Ja. Er kunnen meerdere gebruikersaccounts worden aangemaakt, elk met eigen rechten.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Behouden wij ons huidige WhatsApp-nummer?</summary>
+          <div class="faq-answer">
+            <p>Ja. Een bestaand nummer kan worden gemigreerd naar het WhatsApp Business Platform. Voor gasten blijft het nummer hetzelfde, ook voor wie het al in zijn telefoon heeft staan.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Wat gebeurt er met onze bestaande WhatsApp-geschiedenis?</summary>
+          <div class="faq-answer">
+            <p>Die gaat niet mee. Meta verhuist geen gesprekshistorie of contactenlijst. Ons advies is om v&oacute;&oacute;r de migratie een export te maken als naslag. Alles vanaf de migratiedatum staat volledig in GuestCompass.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen we de WhatsApp Business App daarna nog gebruiken?</summary>
+          <div class="faq-answer">
+            <p>Op dat nummer niet. Een telefoonnummer kan maar in &eacute;&eacute;n van de twee systemen bestaan. Vind je dat te ingrijpend, gebruik dan een nieuw nummer voor de assistent en houd je bestaande nummer zoals het is.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Zien gasten dat ze met een AI praten?</summary>
+          <div class="faq-answer">
+            <p>Dat bepaal je zelf. De meeste accommodaties zijn er open over, en in de praktijk maakt het gasten weinig uit zolang het antwoord klopt en snel komt.</p>
+          </div>
+        </details>
+      </div>
+      <div class="faq-group reveal">
+        <div class="faq-group-head">
+          <div class="faq-group-label">Digitale sleutels</div>
+        </div>
+        <details class="faq-item">
+          <summary>Kan de digitale sleutel via WhatsApp worden verstuurd?</summary>
+          <div class="faq-answer">
+            <p>Ja. Veel hotels sturen al direct na de boeking een eerste WhatsApp-bericht. Dat wekt vertrouwen, en een gast die al een keer heeft geappt vult daarna ook de rest van de formaliteiten sneller in.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Moeten gasten een app downloaden?</summary>
+          <div class="faq-answer">
+            <p>Nee. De sleutel is een link. De gast klikt, en de deur gaat open met een schuifknop in de browser.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen we zien of de sleutel is aangekomen en gebruikt?</summary>
+          <div class="faq-answer">
+            <p>Ja, per gast inzichtelijk in de omgeving waar de digitale sleutels worden beheerd. Dus niet alleen of de sleutel verstuurd is, maar ook wat de gast er vervolgens mee heeft gedaan.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kan de sleutel automatisch een paar dagen voor aankomst?</summary>
+          <div class="faq-answer">
+            <p>Ja, de timing stel je zelf in: een aantal dagen of uren voor aankomst, of op een ander moment in de reis van de gast.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Wat als de gast een verkeerd telefoonnummer heeft opgegeven?</summary>
+          <div class="faq-answer">
+            <p>Dan stel je in de messaging flow in dat hetzelfde bericht via WhatsApp &eacute;n e-mail gaat, zodat de gast altijd bereikbaar is. Automatisch detecteren dat een WhatsApp ongeopend bleef en d&aacute;n pas een e-mail sturen, kan op dit moment nog niet.</p>
+          </div>
+        </details>
+      </div>
+      <div class="faq-group reveal">
+        <div class="faq-group-head">
+          <div class="faq-group-label">Berichten en formulieren</div>
+          <p class="faq-group-lede">Vraagt een koppeling met het reserveringssysteem.</p>
+        </div>
+        <details class="faq-item">
+          <summary>Kunnen we automatisch berichten sturen op vaste momenten?</summary>
+          <div class="faq-answer">
+            <p>Ja. Direct na de boeking, voor aankomst, na check-in, tijdens het verblijf, voor of na vertrek. Per bericht kies je het kanaal: e-mail, WhatsApp of SMS.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen we gasten om informatie vragen, zoals aankomsttijd en kenteken?</summary>
+          <div class="faq-answer">
+            <p>Ja. Je stuurt automatisch een bericht met een link naar een formulier in de webapp. Zodra een gast het invult, krijgt de receptie daarvan een melding. Het verwerken van die informatie is op dit moment nog een handmatige stap.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen we per kamertype andere informatie sturen, bijvoorbeeld een instructievideo?</summary>
+          <div class="faq-answer">
+            <p>Ja. De assistent stuurt de weblink mee die bij dat specifieke kamertype hoort, in de juiste taal. De video's zet je in de webapp op een 'unlinked' pagina: niet vindbaar door te navigeren, alleen via de directe link die de assistent doorgeeft.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Wij hebben verschillende soorten gasten. Kan dat per situatie anders?</summary>
+          <div class="faq-answer">
+            <p>Ja. Er zijn kant-en-klare profielen om vanuit te starten, bijvoorbeeld voor een 24-uursreceptie, voor zelf inchecken, en voor een vakantiepark. Daar pas je vervolgens je eigen momenten en teksten in aan.</p>
+          </div>
+        </details>
+      </div>
+      <div class="faq-group reveal">
+        <div class="faq-group-head">
+          <div class="faq-group-label">Koppelingen</div>
+        </div>
+        <details class="faq-item">
+          <summary>Werkt dit met ons reserveringssysteem?</summary>
+          <div class="faq-answer">
+            <p>GuestCompass koppelt met tientallen reserveringssystemen. Wat een koppeling precies doorgeeft verschilt per systeem, dus dat lopen we in een gesprek langs voor jullie eigen situatie.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>En als ons systeem er niet bij zit?</summary>
+          <div class="faq-answer">
+            <p>Dan werkt de assistent nog steeds, op basis van de informatie die je zelf aanlevert. Je mist alleen de automatische berichten op boekingsmomenten en de antwoorden die op een specifieke reservering zijn gebaseerd.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Werkt dit met onze sloten?</summary>
+          <div class="faq-answer">
+            <p>Ja, GuestCompass werkt met de gangbare systemen voor mobiele toegang. Welke variant van jouw slotsysteem ondersteund wordt checken we vooraf, want dat verschilt soms per productlijn van dezelfde fabrikant.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Hebben we hier een IT-afdeling voor nodig?</summary>
+          <div class="faq-answer">
+            <p>Nee. Het enige dat iemand met websitetoegang moet doen, is de widgetcode plaatsen. De rest richten wij samen met jou in.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kunnen we eerst de beheeromgeving zien?</summary>
+          <div class="faq-answer">
+            <p>Graag. In een half uur lopen we door Connect: de gesprekken, de assistent, de automatische berichten, de digitale sleutels en het dashboard. Niet als demo-hotel, maar zoals het er op een gewone dinsdagmiddag uitziet.</p>
+          </div>
+        </details>
+      </div>
+      <div class="faq-group reveal">
+        <div class="faq-group-head">
+          <div class="faq-group-label">Kosten</div>
+        </div>
+        <details class="faq-item">
+          <summary>Wat kost de AI-assistent?</summary>
+          <div class="faq-answer">
+            <p>&euro;39 per maand. De eerste drie maanden zijn kosteloos, maandelijks opzegbaar, geen opstartkosten.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Betalen we meer als we meer kanalen gebruiken?</summary>
+          <div class="faq-answer">
+            <p>Voor de assistent niet. Website, webapp en WhatsApp zitten in hetzelfde bedrag. Het enige dat erbij komt zijn de berichtkosten van Meta, en die gelden alleen voor WhatsApp.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Komen er kosten per WhatsApp-bericht bij?</summary>
+          <div class="faq-answer">
+            <p>Ja, die rekent Meta rechtstreeks. Praktische berichten zoals een pre-check-in of een digitale sleutel kosten een paar cent. Promotionele berichten zijn in Nederland een stuk duurder.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Hoe houden we die kosten laag?</summary>
+          <div class="faq-answer">
+            <p>Door per bericht het juiste kanaal te kiezen. E-mail is kosteloos, dus WhatsApp gebruik je voor de berichten die echt gelezen moeten worden. En doordat de widget op je eigen website staat, beginnen gasten vaak zelf het gesprek, wat het voordeligste tarief oplevert.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>En als we WhatsApp helemaal niet gebruiken?</summary>
+          <div class="faq-answer">
+            <p>Dan zijn er geen berichtkosten. Alleen het maandbedrag voor de assistent, en dat is hetzelfde bedrag als met WhatsApp.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Zit er een contract aan vast?</summary>
+          <div class="faq-answer">
+            <p>Nee. Maandelijks opzegbaar.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div class="faq-table-wrap reveal">
+      <div class="faq-table-title">Drie opzetten naast elkaar</div>
+      <table class="faq-table">
+        <thead>
+          <tr>
+            <th scope="col">Wat je krijgt</th>
+            <th scope="col">Alleen de website-widget</th>
+            <th scope="col">Webapp zonder koppeling</th>
+            <th scope="col">Volledig, met koppeling</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">AI-assistent met eigen kennisbank, alle talen</th>
+            <td>Ja</td>
+            <td>Ja</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <th scope="row">Vragen van bezoekers die nog niet boekten</th>
+            <td>Ja</td>
+            <td>Ja</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <th scope="row">Eigen pagina's en content voor gasten</th>
+            <td class="is-no">Nee</td>
+            <td>Ja</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <th scope="row">Antwoorden op basis van de reservering van de gast</th>
+            <td class="is-no">Nee</td>
+            <td class="is-no">Nee</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <th scope="row">Automatische berichten op boekingsmomenten</th>
+            <td class="is-no">Nee</td>
+            <td class="is-no">Nee</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <th scope="row">WhatsApp als kanaal voor uitgaande berichten</th>
+            <td class="is-no">Nee</td>
+            <td class="is-no">Nee</td>
+            <td>Ja</td>
+          </tr>
+          <tr class="faq-table-price">
+            <th scope="row">Maandprijs van de assistent</th>
+            <td>Gelijk</td>
+            <td>Gelijk</td>
+            <td>Gelijk</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="faq-table-note reveal">De onderste regel is het punt van deze tabel: de opzet bepaalt wat je ermee doet, niet wat je betaalt.</p>
+    <div class="faq-cta reveal">
+      <h3>Staat jouw vraag er niet bij?</h3>
+      <p>Stel hem gewoon. In een half uur laten we de beheeromgeving zien zoals die er in de dagelijkse praktijk uitziet.</p>
+      <a href="#contact">Neem contact op</a>
     </div>
   </div>
 </section>
