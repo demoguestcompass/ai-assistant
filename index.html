@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GuestCompass AI | Slimme AI-oplossingen voor de hospitality</title>
-<meta name="description" content="Ontdek de AI-mogelijkheden van GuestCompass. Van intelligente chatbots tot geautomatiseerde gastcommunicatie &mdash; verhoog de gastbeleving en bespaar tijd.">
+<meta name="description" content="Ontdek de AI-mogelijkheden van GuestCompass. Van intelligente chatbots tot geautomatiseerde gastcommunicatie: verhoog de gastbeleving en bespaar tijd.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -89,6 +89,8 @@ a{text-decoration:none;color:inherit}
 .btn-primary:hover{background:#EA6C0A;transform:translateY(-2px);box-shadow:0 8px 24px rgba(249,115,22,0.4)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--navy);padding:14px 32px;border-radius:10px;font-weight:500;font-size:15px;transition:all .25s;border:1px solid var(--gray-400);cursor:pointer}
 .btn-secondary:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.4);transform:translateY(-2px)}
+.btn-offer{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#C2410C;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15px;transition:all .25s;border:2px solid var(--gold);cursor:pointer;letter-spacing:0.2px}
+.btn-offer:hover{background:var(--gold-light);transform:translateY(-2px)}
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
 .hero-mockup{position:relative;width:100%;max-width:360px}
 .wa-phone{position:relative;width:300px;margin:0 auto;flex-shrink:0}
@@ -184,8 +186,12 @@ a{text-decoration:none;color:inherit}
 .pricing-features li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--gray-700)}
 .pricing-features li svg{flex-shrink:0;margin-top:2px;color:var(--gold)}
 .pricing-note{font-size:14px;color:var(--gray-700);text-align:center;margin-top:16px;line-height:1.6}
+.pricing-note a{color:var(--gold);text-decoration:underline}
 .pricing-cta{display:block;width:100%;text-align:center;background:rgb(51,51,51);color:var(--white);padding:16px;border-radius:10px;font-weight:600;font-size:15px;transition:all .25s;border:none;cursor:pointer}
 .pricing-cta:hover{background:rgb(71,71,71);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+.pricing-terms{display:flex;flex-direction:column;gap:6px;margin:0 0 20px;padding-bottom:20px;border-bottom:1px solid #F3F4F6;text-align:center}
+.pricing-terms .is-free{font-size:14px;font-weight:600;color:#1F7A4C;margin:0}
+.pricing-terms .is-bound{font-size:13px;color:var(--gray-500);margin:0}
 
 /* ===== CONTACT ===== */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
@@ -238,6 +244,7 @@ a{text-decoration:none;color:inherit}
   .demo-section{padding:64px 16px}
   .pricing-body{padding:24px}
   .pricing-header{padding:32px 24px 24px}
+  .btn-offer{padding:14px 22px;font-size:14px}
 }
 
 /* ===== CAROUSEL ===== */
@@ -271,6 +278,8 @@ a{text-decoration:none;color:inherit}
 .faq-answer{padding:0 40px 24px 0}
 .faq-answer p{font-size:16px;color:var(--gray-600);line-height:1.7;margin:0 0 12px}
 .faq-answer p:last-child{margin-bottom:0}
+.faq-answer ul{margin:0 0 12px;padding-left:22px}
+.faq-answer li{font-size:16px;color:var(--gray-600);line-height:1.7;margin-bottom:6px}
 .faq-table-wrap{max-width:820px;margin:44px auto 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .faq-table-title{font-size:13px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
 .faq-table{border-collapse:collapse;width:100%;min-width:620px;font-size:15px;background:var(--white)}
@@ -293,6 +302,14 @@ a{text-decoration:none;color:inherit}
   .faq-answer{padding-right:16px}
   .faq-cta{padding:24px}
 }
+
+/* ===== VOORWAARDEN ===== */
+.terms-section{padding:0 24px 100px}
+.terms-wrap{max-width:820px;margin:0 auto}
+.terms-lede{padding-left:16px;border-left:3px solid var(--gold);font-size:16px;color:var(--gray-700);line-height:1.7;margin:24px 0 8px}
+.terms-block{margin-top:26px}
+.terms-block h4{font-family:var(--font-heading);font-size:17px;font-weight:700;color:var(--gray-900);margin:0 0 10px}
+@media(max-width:768px){.terms-section{padding:0 16px 64px}}
 </style>
 <!-- ===== FAQ STRUCTURED DATA ===== -->
 <script type="application/ld+json">
@@ -361,7 +378,7 @@ a{text-decoration:none;color:inherit}
       "name": "Kunnen we alleen de widget op onze website nemen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja. Dan staat de assistent op de site en beantwoordt hij de vragen van bezoekers die zich nog aan het ori\u00ebnteren zijn. Voor veel accommodaties is dat het meest zichtbare resultaat, want daar zitten de mensen die nog moeten boeken."
+        "text": "Ja. Dan staat de assistent op de site en beantwoordt hij de vragen van bezoekers die zich nog aan het oriënteren zijn. Voor veel accommodaties is dat het meest zichtbare resultaat, want daar zitten de mensen die nog moeten boeken."
       }
     },
     {
@@ -385,7 +402,7 @@ a{text-decoration:none;color:inherit}
       "name": "Verandert de prijs als we minder kanalen gebruiken?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nee. De maandprijs is in alle opzetten gelijk. Alleen de website, alleen de webapp, of alles gekoppeld: hetzelfde bedrag. Wat w\u00e9l verschilt zijn de berichtkosten die Meta rekent, en die heb je alleen als je WhatsApp gebruikt."
+        "text": "Nee. De maandprijs is in alle opzetten gelijk. Alleen de website, alleen de webapp, of alles gekoppeld: hetzelfde bedrag. Wat wél verschilt zijn de berichtkosten die Meta rekent, en die heb je alleen als je WhatsApp gebruikt."
       }
     },
     {
@@ -425,7 +442,7 @@ a{text-decoration:none;color:inherit}
       "name": "Is dat dezelfde assistent als in de webapp en op WhatsApp?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dezelfde assistent, dezelfde kennis. E\u00e9n bron van informatie, meerdere ingangen, en alles komt op dezelfde plek binnen."
+        "text": "Dezelfde assistent, dezelfde kennis. Eén bron van informatie, meerdere ingangen, en alles komt op dezelfde plek binnen."
       }
     },
     {
@@ -521,7 +538,7 @@ a{text-decoration:none;color:inherit}
       "name": "Wat gebeurt er met onze bestaande WhatsApp-geschiedenis?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Die gaat niet mee. Meta verhuist geen gesprekshistorie of contactenlijst. Ons advies is om v\u00f3\u00f3r de migratie een export te maken als naslag. Alles vanaf de migratiedatum staat volledig in GuestCompass."
+        "text": "Die gaat niet mee. Meta verhuist geen gesprekshistorie of contactenlijst. Ons advies is om vóór de migratie een export te maken als naslag. Alles vanaf de migratiedatum staat volledig in GuestCompass."
       }
     },
     {
@@ -529,7 +546,7 @@ a{text-decoration:none;color:inherit}
       "name": "Kunnen we de WhatsApp Business App daarna nog gebruiken?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Op dat nummer niet. Een telefoonnummer kan maar in \u00e9\u00e9n van de twee systemen bestaan. Vind je dat te ingrijpend, gebruik dan een nieuw nummer voor de assistent en houd je bestaande nummer zoals het is."
+        "text": "Op dat nummer niet. Een telefoonnummer kan maar in één van de twee systemen bestaan. Vind je dat te ingrijpend, gebruik dan een nieuw nummer voor de assistent en houd je bestaande nummer zoals het is."
       }
     },
     {
@@ -577,7 +594,7 @@ a{text-decoration:none;color:inherit}
       "name": "Wat als de gast een verkeerd telefoonnummer heeft opgegeven?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Dan stel je in de messaging flow in dat hetzelfde bericht via WhatsApp \u00e9n e-mail gaat, zodat de gast altijd bereikbaar is. Automatisch detecteren dat een WhatsApp ongeopend bleef en d\u00e1n pas een e-mail sturen, kan op dit moment nog niet."
+        "text": "Dan stel je in de messaging flow in dat hetzelfde bericht via WhatsApp én e-mail gaat, zodat de gast altijd bereikbaar is. Automatisch detecteren dat een WhatsApp ongeopend bleef en dán pas een e-mail sturen, kan op dit moment nog niet."
       }
     },
     {
@@ -657,7 +674,23 @@ a{text-decoration:none;color:inherit}
       "name": "Wat kost de AI-assistent?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "\u20ac39 per maand, maandelijks opzegbaar. Werk je zonder koppeling met je reserveringssysteem, dan zijn de eerste drie maanden gratis en zijn er geen opstartkosten. Moet er wel gekoppeld worden met je PMS, dan vraagt dat eenmalig werk en daar zijn kosten aan verbonden. Wat dat precies is verschilt per systeem, dus dat lopen we in een gesprek langs."
+        "text": "€39 per maand per accommodatie, exclusief btw. Hoeft er geen nieuwe koppeling gebouwd te worden, dan zijn de eerste drie maanden gratis en is het daarna maandelijks opzegbaar. Dat geldt als je zonder PMS-koppeling werkt, en ook als je al klant bent en je koppeling er al ligt. Kies je voor een nieuwe PMS-koppeling, dan rekenen we daar geen koppelkosten voor, maar geldt een minimale afname van 12 maanden en vervalt de gratis periode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ik ben al klant van GuestCompass, geldt de proefperiode dan ook?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Ligt je koppeling er al, bijvoorbeeld via Hotek voor de digitale sleutel, dan hoeft er niets nieuws gebouwd te worden en kun je de assistent gewoon drie maanden gratis proberen. We zetten hem aan op wat er al draait. Heb je al een gastenwebapp, dan is dat het snelst: de informatie die daar voor gasten staat is meteen de kennisbank van de assistent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan ik de AI-assistent gratis proberen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, drie maanden, zolang er geen nieuwe koppeling gebouwd hoeft te worden. Tijdens die periode kun je op elk moment stoppen en volgt er geen factuur. Het aanbod geldt eenmalig per accommodatie."
       }
     },
     {
@@ -697,7 +730,7 @@ a{text-decoration:none;color:inherit}
       "name": "Zit er een contract aan vast?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nee. Maandelijks opzegbaar."
+        "text": "Hoeft er geen nieuwe koppeling gebouwd te worden, dan niet: maandelijks opzegbaar, geen opzegkosten. Kies je voor een nieuwe PMS-koppeling, dan geldt een minimale afname van 12 maanden."
       }
     }
   ]
@@ -761,7 +794,9 @@ a{text-decoration:none;color:inherit}
           Neem contact op
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10m-4-4l4 4-4 4"/></svg>
         </a>
-
+        <a href="#prijzen" class="btn-offer">
+          &euro; 39 per maand, 3 maanden gratis
+        </a>
       </div>
       <div class="hero-stats">
         <div class="hero-stat">
@@ -843,7 +878,7 @@ a{text-decoration:none;color:inherit}
     <div class="section-header reveal">
       <div class="section-label">Features</div>
       <h2 class="section-title">Alles wat je nodig hebt voor slimme gastcommunicatie</h2>
-      <p class="section-subtitle">Van een intelligente AI-assistent tot geautomatiseerde berichtenflows &mdash; GuestCompass biedt een compleet platform voor moderne hospitality.</p>
+      <p class="section-subtitle">Van een intelligente AI-assistent tot geautomatiseerde berichtenflows: GuestCompass biedt een compleet platform voor moderne hospitality.</p>
     </div>
     <div class="features-grid features-grid--3">
 
@@ -853,7 +888,7 @@ a{text-decoration:none;color:inherit}
           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         </div>
         <h3>AI-Assistent &amp; Chatbot</h3>
-        <p>Een slimme AI beantwoordt gastvragen dag en nacht &mdash; in elke taal, via de website, app en WhatsApp. Kan de AI iets niet oplossen? Dan krijgt je team direct een notificatie. Communiceert vloeiend in alle talen.</p>
+        <p>Een slimme AI beantwoordt gastvragen dag en nacht, in elke taal, via de website, app en WhatsApp. Kan de AI iets niet oplossen? Dan krijgt je team direct een notificatie. Communiceert vloeiend in alle talen.</p>
       </div>
 
       <!-- Tile 2: Online Pre-check-in -->
@@ -862,7 +897,7 @@ a{text-decoration:none;color:inherit}
           <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <h3>Online Pre-check-in</h3>
-        <p>Gasten ontvangen voor aankomst automatisch een persoonlijke incheck-link &mdash; de receptie hoeft er niets voor te doen. Beschikbaar voor Mews en Bookzo.</p>
+        <p>Gasten ontvangen voor aankomst automatisch een persoonlijke incheck-link, de receptie hoeft er niets voor te doen. Beschikbaar voor Mews en Bookzo.</p>
       </div>
 
       <!-- Tile 3: Website Widget & Webapp -->
@@ -884,7 +919,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div>
           <h4 style="font-family:inherit;font-size:17px;font-weight:700;color:#fff;margin:0 0 8px;line-height:1.2;">Alles samengebracht in &eacute;&eacute;n messaging flow</h4>
-          <p style="font-size:14px;color:rgba(255,255,255,0.62);line-height:1.7;margin:0;">Van eerste interesse tot lang na vertrek stuurt GuestCompass automatisch het juiste bericht op het juiste moment &mdash; via WhatsApp, e-mail of sms. In de taal van de gast, zonder dat jij er iets voor hoeft te doen.</p>
+          <p style="font-size:14px;color:rgba(255,255,255,0.62);line-height:1.7;margin:0;">Van eerste interesse tot lang na vertrek stuurt GuestCompass automatisch het juiste bericht op het juiste moment, via WhatsApp, e-mail of sms. In de taal van de gast, zonder dat jij er iets voor hoeft te doen.</p>
         </div>
       </div>
       <div class="flow-steps">
@@ -937,7 +972,6 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
 
-    </div>
   </div>
 </section>
 
@@ -1003,7 +1037,7 @@ a{text-decoration:none;color:inherit}
     <div style="max-width:680px;margin:0 auto;text-align:center" class="reveal">
       <div class="section-label">Nog geen PMS-koppeling?</div>
       <h2 class="section-title">Geen probleem, de assistent werkt ook zonder</h2>
-      <p style="font-size:17px;color:var(--gray-500);line-height:1.7;margin-bottom:32px">De assistent draait ook zonder koppeling: op je eigen website en in de gastenwebapp. Wil je later wel koppelen, dan ondersteunt GuestCompass tientallen PMS-systemen en regelen wij dat. Dat vraagt eenmalig werk en daar zijn kosten aan verbonden, dus dat lopen we vooraf samen langs. Alleen voor WhatsApp is een koppeling nodig.</p>
+      <p style="font-size:17px;color:var(--gray-500);line-height:1.7;margin-bottom:32px">De assistent draait ook zonder koppeling: op je eigen website en in de gastenwebapp. En juist dan kun je hem drie maanden gratis proberen. Wil je later wel koppelen, dan ondersteunt GuestCompass tientallen PMS-systemen en regelen wij dat. Daar rekenen we geen koppelkosten voor, maar er geldt dan wel een minimale afname van 12 maanden en vervalt de gratis proefperiode.</p>
       <a href="#contact" class="btn-primary" style="display:inline-flex;margin:0 auto">
         Laten we even kijken wat mogelijk is
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10m-4-4l4 4-4 4"/></svg>
@@ -1022,7 +1056,7 @@ a{text-decoration:none;color:inherit}
     </div>
     <div class="pricing-card reveal">
       <div class="pricing-header">
-        
+
         <h3>GuestCompass AI</h3>
         <p>Alles wat je nodig hebt voor slimme gastcommunicatie</p>
         <div class="pricing-amount">
@@ -1030,11 +1064,14 @@ a{text-decoration:none;color:inherit}
           <span class="pricing-num">39</span>
           <span class="pricing-per">per maand</span>
         </div>
-        <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-top:6px;">daarna &mdash; geen contract, maandelijks opzegbaar</p>
-        <p class="pricing-disclaimer">Los af te nemen, ook zonder gastenwebapp en zonder koppeling met een reserveringssysteem. Dezelfde maandprijs in elke opzet. Moet er gekoppeld worden met je reserveringssysteem, dan vraagt dat eenmalig werk en daar zijn kosten aan verbonden. Benieuwd wat bij jullie past? Neem <a href="#contact">contact op</a>.</p>
+        <p style="font-size:13px;color:rgba(255,255,255,0.65);margin-top:6px;">per accommodatie, exclusief btw</p>
+        <p class="pricing-disclaimer">Los af te nemen, ook zonder gastenwebapp en zonder koppeling met een reserveringssysteem. Dezelfde maandprijs in elke opzet. Kies je voor een PMS-koppeling, dan rekenen we daar geen koppelkosten voor, maar geldt een minimale afname van 12 maanden. Benieuwd wat bij jullie past? Neem <a href="#contact">contact op</a>.</p>
       </div>
       <div class="pricing-body">
-        <p style="text-align:center;font-size:14px;font-weight:600;color:#1F7A4C;margin:0 0 20px;padding-bottom:20px;border-bottom:1px solid #F3F4F6;">&#10003; Zonder PMS-koppeling: eerste 3 maanden gratis</p>
+        <div class="pricing-terms">
+          <p class="is-free">&#10003; Geen nieuwe koppeling nodig? Eerste 3 maanden gratis</p>
+          <p class="is-bound">Met een nieuwe PMS-koppeling: geen koppelkosten, minimale afname 12 maanden</p>
+        </div>
         <ul class="pricing-features">
           <li>
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" transform="scale(0.85) translate(1,1)"/></svg>
@@ -1066,9 +1103,50 @@ a{text-decoration:none;color:inherit}
           </li>
         </ul>
         <a href="#contact" class="pricing-cta">Neem contact op</a>
-        <p class="pricing-note">Exclusief Meta/WhatsApp berichtenkosten &mdash; geen opzegkosten, maandelijks opzegbaar</p>
+        <p class="pricing-note">Exclusief Meta/WhatsApp berichtenkosten. <a href="#voorwaarden">Bekijk de voorwaarden van 3 maanden gratis</a></p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== VOORWAARDEN ===== -->
+<section class="terms-section section-alt" id="voorwaarden">
+  <div class="terms-wrap reveal">
+    <details class="faq-item" style="border-top:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200)">
+      <summary>Voorwaarden 3 maanden gratis</summary>
+      <div class="faq-answer">
+
+        <p class="terms-lede">Hieronder staat wat er bij het aanbod van <strong>3 maanden gratis</strong> hoort: wanneer het geldt, hoe je begint, en wat er gebeurt als er w&eacute;l een koppeling gebouwd moet worden.</p>
+
+        <div class="terms-block">
+          <h4>Het aanbod</h4>
+          <p><strong>&euro; 39 per maand per accommodatie</strong>, exclusief btw.</p>
+          <p><strong>Hoeft er geen nieuwe koppeling gebouwd te worden? De eerste 3 maanden gratis.</strong> Daarna maandelijks opzegbaar, geen opzegkosten. Dat geldt in twee gevallen:</p>
+          <ul>
+            <li>Je werkt zonder PMS-koppeling. Je krijgt de assistent in de gastenwebapp en de widget voor je website.</li>
+            <li>Je bent al klant van GuestCompass en je koppeling staat er al, bijvoorbeeld via Hotek voor de digitale sleutel. Dan zetten we de assistent aan op wat er al draait.</li>
+          </ul>
+          <p><strong>Je kunt kiezen voor het maken van de PMS-koppeling.</strong> Dan geldt een minimale afname van 1 jaar en vervalt de gratis proefperiode. Zonder nieuwe koppeling is een gratis proefperiode wel mogelijk.</p>
+        </div>
+
+        <div class="terms-block">
+          <h4>Hoe je begint</h4>
+          <p>Ben je al klant en heb je een gastenwebapp? Dan zetten we de assistent daarin aan. Nog geen klant? Dan vul je &eacute;&eacute;n formulier in met de gegevens van je accommodatie. Daarmee voeden we de assistent, zodat hij vanaf dag &eacute;&eacute;n over jouw huis antwoordt.</p>
+        </div>
+
+        <div class="terms-block">
+          <h4>Verder</h4>
+          <ul>
+            <li>Het aanbod geldt eenmalig per accommodatie.</li>
+            <li>Tijdens de gratis periode kun je op elk moment stoppen. Er volgt dan geen factuur.</li>
+            <li>Berichtkosten van Meta, WhatsApp en sms vallen buiten het abonnement. Die rekent de provider af op basis van gebruik.</li>
+            <li>De assistent antwoordt op basis van de informatie die jij aanlevert.</li>
+          </ul>
+          <p>Vragen over iets wat hier niet staat? <a href="#contact" style="color:var(--gold);text-decoration:underline">Stel ze gerust</a>, we leggen het uit.</p>
+        </div>
+
+      </div>
+    </details>
   </div>
 </section>
 
@@ -1399,8 +1477,22 @@ a{text-decoration:none;color:inherit}
         <details class="faq-item">
           <summary>Wat kost de AI-assistent?</summary>
           <div class="faq-answer">
-            <p>&euro;39 per maand, maandelijks opzegbaar. Werk je zonder koppeling met je reserveringssysteem, dan zijn de eerste drie maanden gratis en zijn er geen opstartkosten.</p>
-            <p>Moet er wel gekoppeld worden met je PMS, dan vraagt dat eenmalig werk en daar zijn kosten aan verbonden. Wat dat precies is verschilt per systeem, dus dat lopen we in een gesprek langs voor jullie eigen situatie.</p>
+            <p>&euro;39 per maand per accommodatie, exclusief btw.</p>
+            <p>Hoeft er geen nieuwe koppeling gebouwd te worden, dan zijn de eerste drie maanden gratis en is het daarna maandelijks opzegbaar. Dat geldt als je zonder PMS-koppeling werkt, en ook als je al klant bent en je koppeling er al ligt.</p>
+            <p>Kies je voor een nieuwe PMS-koppeling, dan rekenen we daar geen koppelkosten voor, maar geldt een minimale afname van 12 maanden en vervalt de gratis periode. <a href="#voorwaarden" style="color:var(--gold);text-decoration:underline">Bekijk de voorwaarden</a>.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Kan ik de AI-assistent gratis proberen?</summary>
+          <div class="faq-answer">
+            <p>Ja, drie maanden, zolang er geen nieuwe koppeling gebouwd hoeft te worden. Tijdens die periode kun je op elk moment stoppen en volgt er geen factuur. Het aanbod geldt eenmalig per accommodatie.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Ik ben al klant van GuestCompass, geldt de proefperiode dan ook?</summary>
+          <div class="faq-answer">
+            <p>Ja. Ligt je koppeling er al, bijvoorbeeld via Hotek voor de digitale sleutel, dan hoeft er niets nieuws gebouwd te worden en kun je de assistent gewoon drie maanden gratis proberen. We zetten hem aan op wat er al draait.</p>
+            <p>Heb je al een gastenwebapp, dan is dat het snelst: de informatie die daar voor gasten staat is meteen de kennisbank van de assistent.</p>
           </div>
         </details>
         <details class="faq-item">
@@ -1430,7 +1522,8 @@ a{text-decoration:none;color:inherit}
         <details class="faq-item">
           <summary>Zit er een contract aan vast?</summary>
           <div class="faq-answer">
-            <p>Nee. Maandelijks opzegbaar.</p>
+            <p>Hoeft er geen nieuwe koppeling gebouwd te worden, dan niet: maandelijks opzegbaar, geen opzegkosten.</p>
+            <p>Kies je voor een nieuwe PMS-koppeling, dan geldt een minimale afname van 12 maanden.</p>
           </div>
         </details>
       </div>
@@ -1570,6 +1663,7 @@ a{text-decoration:none;color:inherit}
       <a href="#hoe-het-werkt">Hoe het werkt</a>
       <a href="#demo">Demo</a>
       <a href="#prijzen">Prijzen</a>
+      <a href="#voorwaarden">Voorwaarden</a>
       <a href="#contact">Contact</a>
       <a href="https://www.guestcompass.nl" target="_blank">guestcompass.nl</a>
     </div>
@@ -1603,6 +1697,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
+      if (target.id === 'voorwaarden') {
+        const d = target.querySelector('details');
+        if (d) d.open = true;
+      }
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
