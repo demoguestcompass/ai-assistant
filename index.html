@@ -1706,6 +1706,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Voorwaarden openklappen als iemand van buitenaf op #voorwaarden binnenkomt
+function openTermsFromHash(){
+  if (window.location.hash !== '#voorwaarden') return;
+  var sec = document.getElementById('voorwaarden');
+  if (!sec) return;
+  var d = sec.querySelector('details');
+  if (d) d.open = true;
+  setTimeout(function(){ sec.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+}
+window.addEventListener('load', openTermsFromHash);
+window.addEventListener('hashchange', openTermsFromHash);
+
 // JotForm iframe resize
 window.addEventListener('message', function(e) {
   if (typeof e.data === 'object') return;
